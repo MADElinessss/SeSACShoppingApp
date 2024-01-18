@@ -15,6 +15,17 @@
 		C148B89A2B5904F500795223 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C148B8982B5904F500795223 /* LaunchScreen.storyboard */; };
 		C148B8A22B59050400795223 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C148B8A12B59050400795223 /* .gitignore */; };
 		C148B8A42B59051A00795223 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = C148B8A32B59051A00795223 /* APIKey.swift */; };
+		C148B8A72B59075400795223 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C148B8A62B59075400795223 /* OnboardingViewController.swift */; };
+		C148B8AA2B590BB900795223 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C148B8A92B590BB900795223 /* UIViewController+Extension.swift */; };
+		C148B8AC2B590E1500795223 /* ProfileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C148B8AB2B590E1500795223 /* ProfileSettingViewController.swift */; };
+		C148B8AE2B59195800795223 /* ProfileImageSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C148B8AD2B59195800795223 /* ProfileImageSelectViewController.swift */; };
+		C148B8B32B59228800795223 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C148B8B12B59228800795223 /* ProfileCollectionViewCell.swift */; };
+		C148B8B42B59228800795223 /* ProfileCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C148B8B22B59228800795223 /* ProfileCollectionViewCell.xib */; };
+		C148B8B62B5937C400795223 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C148B8B52B5937C400795223 /* MainViewController.swift */; };
+		C148B8B92B5938D900795223 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C148B8B82B5938D900795223 /* SearchViewController.swift */; };
+		C148B8BB2B59391300795223 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C148B8BA2B59391300795223 /* SettingViewController.swift */; };
+		C148B8BF2B59474B00795223 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C148B8BD2B59474B00795223 /* TableViewCell.swift */; };
+		C148B8C02B59474B00795223 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C148B8BE2B59474B00795223 /* TableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +39,17 @@
 		C148B89B2B5904F500795223 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C148B8A12B59050400795223 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		C148B8A32B59051A00795223 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		C148B8A62B59075400795223 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		C148B8A92B590BB900795223 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		C148B8AB2B590E1500795223 /* ProfileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingViewController.swift; sourceTree = "<group>"; };
+		C148B8AD2B59195800795223 /* ProfileImageSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageSelectViewController.swift; sourceTree = "<group>"; };
+		C148B8B12B59228800795223 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
+		C148B8B22B59228800795223 /* ProfileCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCollectionViewCell.xib; sourceTree = "<group>"; };
+		C148B8B52B5937C400795223 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		C148B8B82B5938D900795223 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		C148B8BA2B59391300795223 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		C148B8BD2B59474B00795223 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		C148B8BE2B59474B00795223 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +82,9 @@
 		C148B88C2B5904F400795223 /* SeSACShoppingApp */ = {
 			isa = PBXGroup;
 			children = (
+				C148B8B72B59389E00795223 /* Main */,
+				C148B8A82B590BA900795223 /* Extension */,
+				C148B8A52B59073300795223 /* Onboarding */,
 				C148B88D2B5904F400795223 /* AppDelegate.swift */,
 				C148B88F2B5904F400795223 /* SceneDelegate.swift */,
 				C148B8912B5904F400795223 /* ViewController.swift */,
@@ -71,6 +96,46 @@
 				C148B8A12B59050400795223 /* .gitignore */,
 			);
 			path = SeSACShoppingApp;
+			sourceTree = "<group>";
+		};
+		C148B8A52B59073300795223 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				C148B8A62B59075400795223 /* OnboardingViewController.swift */,
+				C148B8AD2B59195800795223 /* ProfileImageSelectViewController.swift */,
+				C148B8AB2B590E1500795223 /* ProfileSettingViewController.swift */,
+				C148B8B12B59228800795223 /* ProfileCollectionViewCell.swift */,
+				C148B8B22B59228800795223 /* ProfileCollectionViewCell.xib */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		C148B8A82B590BA900795223 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C148B8A92B590BB900795223 /* UIViewController+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		C148B8B72B59389E00795223 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C148B8BC2B59473E00795223 /* Search */,
+				C148B8B52B5937C400795223 /* MainViewController.swift */,
+				C148B8BA2B59391300795223 /* SettingViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		C148B8BC2B59473E00795223 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				C148B8B82B5938D900795223 /* SearchViewController.swift */,
+				C148B8BD2B59474B00795223 /* TableViewCell.swift */,
+				C148B8BE2B59474B00795223 /* TableViewCell.xib */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,9 +197,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C148B8A22B59050400795223 /* .gitignore in Resources */,
+				C148B8C02B59474B00795223 /* TableViewCell.xib in Resources */,
 				C148B89A2B5904F500795223 /* LaunchScreen.storyboard in Resources */,
 				C148B8972B5904F500795223 /* Assets.xcassets in Resources */,
 				C148B8952B5904F400795223 /* Main.storyboard in Resources */,
+				C148B8B42B59228800795223 /* ProfileCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,10 +212,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C148B8BF2B59474B00795223 /* TableViewCell.swift in Sources */,
+				C148B8AA2B590BB900795223 /* UIViewController+Extension.swift in Sources */,
+				C148B8B92B5938D900795223 /* SearchViewController.swift in Sources */,
 				C148B8922B5904F400795223 /* ViewController.swift in Sources */,
 				C148B88E2B5904F400795223 /* AppDelegate.swift in Sources */,
+				C148B8B32B59228800795223 /* ProfileCollectionViewCell.swift in Sources */,
+				C148B8A72B59075400795223 /* OnboardingViewController.swift in Sources */,
+				C148B8AE2B59195800795223 /* ProfileImageSelectViewController.swift in Sources */,
 				C148B8A42B59051A00795223 /* APIKey.swift in Sources */,
 				C148B8902B5904F400795223 /* SceneDelegate.swift in Sources */,
+				C148B8AC2B590E1500795223 /* ProfileSettingViewController.swift in Sources */,
+				C148B8B62B5937C400795223 /* MainViewController.swift in Sources */,
+				C148B8BB2B59391300795223 /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,8 +376,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -309,9 +386,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Madeline.SeSACShoppingApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -327,8 +407,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -336,9 +417,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Madeline.SeSACShoppingApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
