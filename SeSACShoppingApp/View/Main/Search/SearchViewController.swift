@@ -19,14 +19,20 @@ class SearchViewController: UIViewController {
     
     var userName: String = "고객"
     
-    var list: [String] = ["맥북 거치대", "고무장갑"] {
+    var list: [String] = [] {
         didSet {
             tableView.reloadData()
         }
     }
+    var originalList: [String] = []
     
-    var originalList: [String] = ["고무장갑"]
-//    var originalList: [String] = UserDefaults.standard.array(forKey: "history") ?? ["error"]
+    var itemList: [Item] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+ 
+    let manager = APIManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +44,10 @@ class SearchViewController: UIViewController {
         
         // TODO: 검색 결과가 있으면 toggle
         emptyView.isHidden = true
+        manager.callRequest("캠핑카", "sim") { newValue in
+            self.itemList.append(contentsOf: newValue)
+//            print(self.itemList)
+        }
     }
     
     // TODO: 검색 기록 모두 삭제 버튼임
@@ -50,7 +60,9 @@ class SearchViewController: UIViewController {
     @IBAction func searchButtonTapped(_ sender: UIButton) {
         // MARK: 검색한 단어 -> 이전 검색 기록에 저장
         if (searchBar.text?.isEmpty) == nil {
-            list.append(searchBar.text ?? "")
+            
+        } else {
+            view.endEditing(true)
         }
         // TODO: 검색 결과 화면으로 이동
         let viewController = storyboard?.instantiateViewController(identifier: SearchResultViewController.identifier) as! SearchResultViewController
