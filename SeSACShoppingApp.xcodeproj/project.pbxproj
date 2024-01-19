@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C1381B482B5A8B58001A5285 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1381B472B5A8B58001A5285 /* SearchResultViewController.swift */; };
+		C1381B4B2B5A8B62001A5285 /* SearchResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1381B492B5A8B62001A5285 /* SearchResultCollectionViewCell.swift */; };
+		C1381B4C2B5A8B62001A5285 /* SearchResultCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1381B4A2B5A8B62001A5285 /* SearchResultCollectionViewCell.xib */; };
 		C148B88E2B5904F400795223 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C148B88D2B5904F400795223 /* AppDelegate.swift */; };
 		C148B8902B5904F400795223 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C148B88F2B5904F400795223 /* SceneDelegate.swift */; };
 		C148B8922B5904F400795223 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C148B8912B5904F400795223 /* ViewController.swift */; };
@@ -29,6 +32,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C1381B472B5A8B58001A5285 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		C1381B492B5A8B62001A5285 /* SearchResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCollectionViewCell.swift; sourceTree = "<group>"; };
+		C1381B4A2B5A8B62001A5285 /* SearchResultCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCollectionViewCell.xib; sourceTree = "<group>"; };
 		C148B88A2B5904F400795223 /* SeSACShoppingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACShoppingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C148B88D2B5904F400795223 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C148B88F2B5904F400795223 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +69,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C1381B462B5A8B4E001A5285 /* SearchResult */ = {
+			isa = PBXGroup;
+			children = (
+				C1381B472B5A8B58001A5285 /* SearchResultViewController.swift */,
+				C1381B492B5A8B62001A5285 /* SearchResultCollectionViewCell.swift */,
+				C1381B4A2B5A8B62001A5285 /* SearchResultCollectionViewCell.xib */,
+			);
+			path = SearchResult;
+			sourceTree = "<group>";
+		};
 		C148B8812B5904F400795223 = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +137,7 @@
 		C148B8B72B59389E00795223 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				C1381B462B5A8B4E001A5285 /* SearchResult */,
 				C148B8BC2B59473E00795223 /* Search */,
 				C148B8B52B5937C400795223 /* MainViewController.swift */,
 				C148B8BA2B59391300795223 /* SettingViewController.swift */,
@@ -200,6 +217,7 @@
 				C148B8C02B59474B00795223 /* TableViewCell.xib in Resources */,
 				C148B89A2B5904F500795223 /* LaunchScreen.storyboard in Resources */,
 				C148B8972B5904F500795223 /* Assets.xcassets in Resources */,
+				C1381B4C2B5A8B62001A5285 /* SearchResultCollectionViewCell.xib in Resources */,
 				C148B8952B5904F400795223 /* Main.storyboard in Resources */,
 				C148B8B42B59228800795223 /* ProfileCollectionViewCell.xib in Resources */,
 			);
@@ -216,10 +234,12 @@
 				C148B8AA2B590BB900795223 /* UIViewController+Extension.swift in Sources */,
 				C148B8B92B5938D900795223 /* SearchViewController.swift in Sources */,
 				C148B8922B5904F400795223 /* ViewController.swift in Sources */,
+				C1381B4B2B5A8B62001A5285 /* SearchResultCollectionViewCell.swift in Sources */,
 				C148B88E2B5904F400795223 /* AppDelegate.swift in Sources */,
 				C148B8B32B59228800795223 /* ProfileCollectionViewCell.swift in Sources */,
 				C148B8A72B59075400795223 /* OnboardingViewController.swift in Sources */,
 				C148B8AE2B59195800795223 /* ProfileImageSelectViewController.swift in Sources */,
+				C1381B482B5A8B58001A5285 /* SearchResultViewController.swift in Sources */,
 				C148B8A42B59051A00795223 /* APIKey.swift in Sources */,
 				C148B8902B5904F400795223 /* SceneDelegate.swift in Sources */,
 				C148B8AC2B590E1500795223 /* ProfileSettingViewController.swift in Sources */,

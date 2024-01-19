@@ -26,6 +26,10 @@ class OnboardingViewController: UIViewController {
         navigationController?.pushViewController(viewController, animated: true)
     }
     
+    func checkFirst() {
+        UserDefaults.standard.set("NoOnboarding", forKey: "Onboarding")
+    }
+    
     func configureView() {
         
         appNameLabel.text = "SeSAC Shopping"

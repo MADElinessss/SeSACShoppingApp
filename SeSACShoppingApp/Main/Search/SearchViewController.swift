@@ -19,7 +19,14 @@ class SearchViewController: UIViewController {
     
     var userName: String = "고객"
     
-    var list: [String] = ["맥북 거치대", "고무장갑"]
+    var list: [String] = ["맥북 거치대", "고무장갑"] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
+    var originalList: [String] = ["고무장갑"]
+//    var originalList: [String] = UserDefaults.standard.array(forKey: "history") ?? ["error"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +46,17 @@ class SearchViewController: UIViewController {
         view.endEditing(true)
     }
     
+    // MARK: 검색어 저장의 기준을 못찾아서 만듦,,🥲
+    @IBAction func searchButtonTapped(_ sender: UIButton) {
+        // MARK: 검색한 단어 -> 이전 검색 기록에 저장
+        if (searchBar.text?.isEmpty) == nil {
+            list.append(searchBar.text ?? "")
+        }
+        // TODO: 검색 결과 화면으로 이동
+        let viewController = storyboard?.instantiateViewController(identifier: SearchResultViewController.identifier) as! SearchResultViewController
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     func configureEmptyView() {
         emptyView.backgroundColor = .black
         emptyLabel.textColor = .white
@@ -51,9 +69,7 @@ class SearchViewController: UIViewController {
         title = "\(userName)님의 새싹쇼핑"
         
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
-        backBarButtonItem.tintColor = .black
-        self.navigationItem.backBarButtonItem = backBarButtonItem
+        self.navigationItem.hidesBackButton = true
         
         searchBar.barTintColor = .black
         searchBar.placeholder = "브랜드, 상품, 프로필, 태그 등"
@@ -64,10 +80,6 @@ class SearchViewController: UIViewController {
             if let leftView = textfield.leftView as? UIImageView {
                 leftView.image = leftView.image?.withRenderingMode(.alwaysTemplate)
                 leftView.tintColor = UIColor.lightGray
-            }
-            if let rightView = textfield.rightView as? UIImageView {
-                rightView.image = rightView.image?.withRenderingMode(.alwaysTemplate)
-                rightView.tintColor = UIColor.white
             }
         }
     }
@@ -83,6 +95,7 @@ class SearchViewController: UIViewController {
     }
 }
 
+// MARK: TableView
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -93,11 +106,47 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier) as! TableViewCell
         
         cell.historyLabel.text = list[indexPath.row]
-        print(list[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier) as! TableViewCell
+        searchBar.text = list[indexPath.row]
+        
+        let viewController = storyboard?.instantiateViewController(identifier: SearchResultViewController.identifier) as! SearchResultViewController
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
     }
 }
 
+// MARK: SearchBar
 extension SearchViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        var filterData: [String] = []
+        
+        for item in originalList {
+            if item.contains(searchBar.text!) {
+                filterData.append(item)
+            }
+        }
+        list = filterData
+        
+        print("*\(originalList)")
+        print("*\(list)")
+    }
     
+//    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+//        list.append(searchBar.text ?? "")
+//        originalList = list
+//        print("**\(originalList)")
+//        print("**\(list)")
+//        view.endEditing(true)
+//    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        tableView.reloadData()
+    }
 }
