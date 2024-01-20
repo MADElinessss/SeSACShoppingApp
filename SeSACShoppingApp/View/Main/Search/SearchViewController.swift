@@ -11,6 +11,8 @@ class SearchViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     
+    @IBOutlet weak var eraseAllButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var emptyView: UIView!
     @IBOutlet weak var emptyImageView: UIImageView!
     @IBOutlet weak var emptyLabel: UILabel!
@@ -33,33 +35,60 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        list = UserDefaultsManager.shared.searchHistory
+        
+        updateEmptyView()
         setBackGroundColor()
         configureView()
         configureEmptyView()
         configureTableView()
-        
-        // TODO: 검색 결과가 있으면 toggle
-        emptyView.isHidden = true
     }
     
     // TODO: 검색 기록 모두 삭제 버튼임
     @IBAction func eraseAllButtonTapped(_ sender: UIButton) {
-        
-        view.endEditing(true)
+        UserDefaultsManager.shared.searchHistory = []
+        list = []
+        tableView.reloadData()
     }
     
     // MARK: 검색어 저장의 기준을 못찾아서 만듦,,🥲
     @IBAction func searchButtonTapped(_ sender: UIButton) {
         // MARK: 검색한 단어 -> 이전 검색 기록에 저장
-        if (searchBar.text?.isEmpty) == nil {
+        if let searchText = searchBar.text, !searchText.isEmpty {
             
-        } else {
+            var currentHistory = UserDefaultsManager.shared.searchHistory
+            
+            // MARK: 중복 검사 - 중복된 값이 없을 때만 추가
+            if !currentHistory.contains(searchText) {
+                currentHistory.append(searchText)
+                UserDefaultsManager.shared.searchHistory = currentHistory
+            }
+            
+            list = currentHistory
+            tableView.reloadData()
+            
             view.endEditing(true)
+            
+            let viewController = storyboard?.instantiateViewController(identifier: SearchResultViewController.identifier) as! SearchResultViewController
+            viewController.searchKeyword = searchText
+            navigationController?.pushViewController(viewController, animated: true)
         }
-        // MARK: 검색 결과 화면으로 이동
-        let viewController = storyboard?.instantiateViewController(identifier: SearchResultViewController.identifier) as! SearchResultViewController
-        viewController.searchKeyword = searchBar.text ?? ""
-        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func updateEmptyView() {
+        // TODO: 검색 결과가 있으면 toggle
+        if list.count == 0 {
+            emptyView.isHidden = false
+            tableView.isHidden = true
+            eraseAllButton.isHidden = true
+            titleLabel.isHidden = true
+        } else {
+            emptyView.isHidden = true
+            tableView.isHidden = false
+            eraseAllButton.isHidden = false
+            titleLabel.isHidden = false
+        }
+        tableView.reloadData()
     }
 
     func configureEmptyView() {
@@ -111,6 +140,9 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier) as! TableViewCell
         
         cell.historyLabel.text = list[indexPath.row]
+        cell.deleteButtonTappedHandler = { [weak self] in
+            self?.deleteSearchHistoryItem(at: indexPath.row)
+        }
         return cell
     }
     
@@ -120,24 +152,29 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 44
+    }
+    
+    func deleteSearchHistoryItem(at index: Int) {
+        
+        list.remove(at: index)
+        UserDefaultsManager.shared.searchHistory = list
+        
+        tableView.reloadData()
+        updateEmptyView()
     }
 }
 
 // MARK: SearchBar
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        var filterData: [String] = []
         
-        for item in originalList {
-            if item.contains(searchBar.text!) {
-                filterData.append(item)
-            }
+        updateEmptyView()
+        
+        if searchText.isEmpty {
+            list = UserDefaultsManager.shared.searchHistory
+        } else {
+            list = UserDefaultsManager.shared.searchHistory.filter { $0.contains(searchText) }
         }
-        list = filterData
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        tableView.reloadData()
     }
 }

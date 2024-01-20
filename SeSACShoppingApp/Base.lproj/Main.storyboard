@@ -11,21 +11,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SeSACShoppingApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="76" y="-2"/>
-        </scene>
         <!--쇼핑목록-->
         <scene sceneID="wzR-tb-bg1">
             <objects>
@@ -56,7 +41,7 @@
                     <connections>
                         <segue destination="lcO-WN-POX" kind="relationship" relationship="viewControllers" id="mh3-ZL-ePV"/>
                         <segue destination="Xtr-Dn-4YO" kind="relationship" relationship="viewControllers" id="Pe4-cD-GAQ"/>
-                        <segue destination="RHc-lY-zF3" kind="relationship" relationship="viewControllers" id="Xdd-jA-rTX"/>
+                        <segue destination="nwW-nL-Msb" kind="relationship" relationship="viewControllers" id="Xdd-jA-rTX"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="htU-fU-t2w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -163,8 +148,10 @@
                         <outlet property="emptyImageView" destination="qa6-uy-ntB" id="uSY-6c-UbD"/>
                         <outlet property="emptyLabel" destination="GTB-wL-dOM" id="b6W-sY-htX"/>
                         <outlet property="emptyView" destination="BQs-Bu-yau" id="fue-VI-UTo"/>
+                        <outlet property="eraseAllButton" destination="ZiV-b1-SVq" id="kby-F5-IRL"/>
                         <outlet property="searchBar" destination="C8Y-PO-UXV" id="5NM-Lk-pXM"/>
                         <outlet property="tableView" destination="KHU-dT-Qr3" id="Md9-O0-CNI"/>
+                        <outlet property="titleLabel" destination="HYs-ll-Eid" id="QOj-7V-13s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="izT-hs-Ofw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -178,14 +165,30 @@
                     <view key="view" contentMode="scaleToFill" id="ksA-1J-6l0">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="OHW-JN-WHM">
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="LMl-rX-gVf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="LMl-rX-gVf" firstAttribute="trailing" secondItem="OHW-JN-WHM" secondAttribute="trailing" id="893-zT-94Z"/>
+                            <constraint firstItem="LMl-rX-gVf" firstAttribute="bottom" secondItem="OHW-JN-WHM" secondAttribute="bottom" id="WII-Jq-9AR"/>
+                            <constraint firstItem="OHW-JN-WHM" firstAttribute="top" secondItem="LMl-rX-gVf" secondAttribute="top" id="iY8-8T-oej"/>
+                            <constraint firstItem="OHW-JN-WHM" firstAttribute="leading" secondItem="LMl-rX-gVf" secondAttribute="leading" id="p4H-FA-z1k"/>
+                            <constraint firstItem="OHW-JN-WHM" firstAttribute="centerX" secondItem="ksA-1J-6l0" secondAttribute="centerX" id="ypX-jR-yX6"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="설정" image="person.fill" catalog="system" id="peT-jG-jrg"/>
+                    <navigationItem key="navigationItem" title="설정" id="FTX-Nw-q5e"/>
+                    <connections>
+                        <outlet property="settingtableView" destination="OHW-JN-WHM" id="q0g-og-b10"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wkT-gg-QGN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7064" y="1090"/>
+            <point key="canvasLocation" x="7990.0763358778622" y="1089.4366197183099"/>
         </scene>
         <!--Search Result View Controller-->
         <scene sceneID="PtV-HL-f7j">
@@ -353,6 +356,28 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IQk-b5-s4k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7078.6259541984728" y="372.53521126760563"/>
+        </scene>
+        <!--설정-->
+        <scene sceneID="o8M-5I-OLa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nwW-nL-Msb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="설정" image="person.fill" catalog="system" id="peT-jG-jrg"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qWx-EK-nxQ">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="AccentColor"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="RHc-lY-zF3" kind="relationship" relationship="rootViewController" id="fy8-zP-CLl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BYo-N6-H0W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7063.3587786259541" y="1089.4366197183099"/>
         </scene>
     </scenes>
     <resources>

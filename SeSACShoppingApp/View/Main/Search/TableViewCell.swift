@@ -12,6 +12,7 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var historyLabel: UILabel!
     
     static let identifier: String = "TableViewCell"
+    var deleteButtonTappedHandler: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,6 +20,6 @@ class TableViewCell: UITableViewCell {
     }
     
     @IBAction func deleteButtonTapped(_ sender: UIButton) {
-        
+        deleteButtonTappedHandler?()
     }
 }

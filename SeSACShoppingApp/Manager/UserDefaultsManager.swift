@@ -21,6 +21,15 @@ class UserDefaultsManager {
     
     let ud = UserDefaults.standard
     
+    var searchHistory: [String] {
+        get {
+            ud.array(forKey: "searchHistory") as? [String] ?? []
+        }
+        set {
+            ud.set(newValue, forKey: "searchHistory")
+        }
+    }
+    
     var source: String {
         get {
             ud.string(forKey: UserDefaultsKey.source.rawValue) ?? "ko"

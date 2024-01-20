@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="SettingsProfileTableViewCell" customModule="SeSACShoppingApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1xQ-yX-fvK">
+                        <rect key="frame" x="16" y="12.666666666666664" width="55" height="54.999999999999993"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="55" id="i1S-fd-5lJ"/>
+                            <constraint firstAttribute="height" constant="55" id="uY4-lb-faF"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="들린매" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ebw-4j-HZC">
+                        <rect key="frame" x="103" y="16" width="52" height="24"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10개의 상품" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ze-w9-d5O">
+                        <rect key="frame" x="103" y="44" width="68" height="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                        <color key="textColor" name="point"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="을 좋아하고 있어요!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMJ-wP-yL6">
+                        <rect key="frame" x="171" y="44" width="109" height="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ebw-4j-HZC" secondAttribute="trailing" constant="32" id="4Go-gr-t7E"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="eMJ-wP-yL6" secondAttribute="trailing" constant="16" id="7Bl-so-7tV"/>
+                    <constraint firstItem="Ebw-4j-HZC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="Cte-1F-KBu"/>
+                    <constraint firstItem="1xQ-yX-fvK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="G3Q-BK-6Dl"/>
+                    <constraint firstItem="9Ze-w9-d5O" firstAttribute="top" secondItem="Ebw-4j-HZC" secondAttribute="bottom" constant="4" id="GM3-LA-1SK"/>
+                    <constraint firstItem="1xQ-yX-fvK" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="V52-yf-XQr"/>
+                    <constraint firstItem="eMJ-wP-yL6" firstAttribute="top" secondItem="9Ze-w9-d5O" secondAttribute="top" id="Xee-HM-FJY"/>
+                    <constraint firstItem="Ebw-4j-HZC" firstAttribute="leading" secondItem="1xQ-yX-fvK" secondAttribute="trailing" constant="32" id="sW0-TO-8Yh"/>
+                    <constraint firstItem="9Ze-w9-d5O" firstAttribute="leading" secondItem="1xQ-yX-fvK" secondAttribute="trailing" constant="32" id="wXa-bH-2BS"/>
+                    <constraint firstItem="eMJ-wP-yL6" firstAttribute="leading" secondItem="9Ze-w9-d5O" secondAttribute="trailing" id="yKs-9S-DPp"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="itemCountLabel" destination="9Ze-w9-d5O" id="odF-hL-bbE"/>
+                <outlet property="profileImageView" destination="1xQ-yX-fvK" id="7yw-gn-nsH"/>
+                <outlet property="userNameLabel" destination="Ebw-4j-HZC" id="2RP-jC-1cC"/>
+            </connections>
+            <point key="canvasLocation" x="138.93129770992365" y="19.718309859154932"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="point">
+            <color red="0.28600001335144043" green="0.86299997568130493" blue="0.57300001382827759" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
