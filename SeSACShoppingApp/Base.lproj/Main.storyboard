@@ -527,6 +527,41 @@
             </objects>
             <point key="canvasLocation" x="7887.7862595419847" y="372.53521126760563"/>
         </scene>
+        <!--Item Detail View Controller-->
+        <scene sceneID="ca9-cP-Cs3">
+            <objects>
+                <viewController storyboardIdentifier="ItemDetailViewController" id="aBo-ms-WWp" customClass="ItemDetailViewController" customModule="SeSACShoppingApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a2I-lM-AFZ">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dSn-iK-NI2">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="avJ-sh-9Nx"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dSn-iK-NI2" firstAttribute="top" secondItem="avJ-sh-9Nx" secondAttribute="top" id="F4D-9o-ibh"/>
+                            <constraint firstItem="avJ-sh-9Nx" firstAttribute="bottom" secondItem="dSn-iK-NI2" secondAttribute="bottom" id="OHb-gR-cUL"/>
+                            <constraint firstItem="dSn-iK-NI2" firstAttribute="centerX" secondItem="a2I-lM-AFZ" secondAttribute="centerX" id="Rf9-HE-dRY"/>
+                            <constraint firstItem="avJ-sh-9Nx" firstAttribute="trailing" secondItem="dSn-iK-NI2" secondAttribute="trailing" id="btq-mi-bAm"/>
+                            <constraint firstItem="dSn-iK-NI2" firstAttribute="leading" secondItem="avJ-sh-9Nx" secondAttribute="leading" id="cIz-CJ-Uft"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="dSn-iK-NI2" id="UsO-xz-RPI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wo9-je-AkI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8611" y="373"/>
+        </scene>
     </scenes>
     <resources>
         <image name="camera" width="24" height="24"/>

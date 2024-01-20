@@ -90,8 +90,15 @@ extension SearchResultViewController: UICollectionViewDataSource, UICollectionVi
         return CGSize(width: 100, height: 200)
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // TODO: 셀 선택시 웹뷰로 연결
+        // MARK: 셀 선택시 웹뷰로 연결
+
+        // 안전하게 배열에 접근
+        if let productID = searchResult?.items?[indexPath.row].productID {
+            // MARK: 검색 결과 화면으로 이동
+            let viewController = storyboard?.instantiateViewController(identifier: ItemDetailViewController.identifier) as! ItemDetailViewController
+            viewController.productId = productID
+            navigationController?.pushViewController(viewController, animated: true)
+        }
     }
 }

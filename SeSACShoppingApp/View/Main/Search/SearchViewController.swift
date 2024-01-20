@@ -40,14 +40,6 @@ class SearchViewController: UIViewController {
         
         // TODO: 검색 결과가 있으면 toggle
         emptyView.isHidden = true
-//        manager.callRequest("캠핑카", "sim") { [weak self] newValue in
-//            guard let self = self else { return }
-//            self.itemList = newValue
-//
-//            let viewController = self.storyboard?.instantiateViewController(identifier: SearchResultViewController.identifier) as! SearchResultViewController
-//            viewController.items = self.itemList // 여기서 itemList를 사용하여 데이터 전달
-//            self.navigationController?.pushViewController(viewController, animated: true)
-//        }
     }
     
     // TODO: 검색 기록 모두 삭제 버튼임
