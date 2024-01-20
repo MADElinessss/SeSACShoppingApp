@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - Welcome
+// MARK: - Search
 struct Search: Codable {
     let lastBuildDate: String?
     let total, start, display: Int?

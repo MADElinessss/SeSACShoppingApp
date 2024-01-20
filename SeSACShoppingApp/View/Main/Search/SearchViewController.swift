@@ -26,11 +26,7 @@ class SearchViewController: UIViewController {
     }
     var originalList: [String] = []
     
-    var itemList: [Item] = [] {
-        didSet {
-            tableView.reloadData()
-        }
-    }
+    var itemList: [Item] = []
  
     let manager = APIManager()
     
@@ -44,10 +40,14 @@ class SearchViewController: UIViewController {
         
         // TODO: 검색 결과가 있으면 toggle
         emptyView.isHidden = true
-        manager.callRequest("캠핑카", "sim") { newValue in
-            self.itemList.append(contentsOf: newValue)
-//            print(self.itemList)
-        }
+//        manager.callRequest("캠핑카", "sim") { [weak self] newValue in
+//            guard let self = self else { return }
+//            self.itemList = newValue
+//
+//            let viewController = self.storyboard?.instantiateViewController(identifier: SearchResultViewController.identifier) as! SearchResultViewController
+//            viewController.items = self.itemList // 여기서 itemList를 사용하여 데이터 전달
+//            self.navigationController?.pushViewController(viewController, animated: true)
+//        }
     }
     
     // TODO: 검색 기록 모두 삭제 버튼임
@@ -64,11 +64,12 @@ class SearchViewController: UIViewController {
         } else {
             view.endEditing(true)
         }
-        // TODO: 검색 결과 화면으로 이동
+        // MARK: 검색 결과 화면으로 이동
         let viewController = storyboard?.instantiateViewController(identifier: SearchResultViewController.identifier) as! SearchResultViewController
+        viewController.searchKeyword = searchBar.text ?? ""
         navigationController?.pushViewController(viewController, animated: true)
     }
-    
+
     func configureEmptyView() {
         emptyView.backgroundColor = .black
         emptyLabel.textColor = .white
@@ -122,15 +123,12 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier) as! TableViewCell
-        searchBar.text = list[indexPath.row]
-        
-        let viewController = storyboard?.instantiateViewController(identifier: SearchResultViewController.identifier) as! SearchResultViewController
-        navigationController?.pushViewController(viewController, animated: true)
+        let selectedKeyword = list[indexPath.row]
+        searchBar.text = selectedKeyword
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 100
     }
 }
 
@@ -145,18 +143,7 @@ extension SearchViewController: UISearchBarDelegate {
             }
         }
         list = filterData
-        
-        print("*\(originalList)")
-        print("*\(list)")
     }
-    
-//    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-//        list.append(searchBar.text ?? "")
-//        originalList = list
-//        print("**\(originalList)")
-//        print("**\(list)")
-//        view.endEditing(true)
-//    }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         tableView.reloadData()
