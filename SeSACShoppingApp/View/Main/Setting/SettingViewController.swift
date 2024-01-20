@@ -11,13 +11,16 @@ class SettingViewController: UIViewController {
 
     @IBOutlet weak var settingtableView: UITableView!
     
+    var selectedImage: String = "profile1"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureTableView()
+        
         setBackGroundColor()
+        
         settingtableView.backgroundColor = UIColor.black
-
     }
     
     func configureTableView() {
@@ -34,28 +37,51 @@ class SettingViewController: UIViewController {
 }
 
 extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        if section == 0 {
+            return 1
+        } else {
+            return 5
+        }
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
+        
+        if indexPath.section == 0 {
             let cell = settingtableView.dequeueReusableCell(withIdentifier: "SettingsProfileTableViewCell", for: indexPath) as! SettingsProfileTableViewCell
-            
+            cell.profileImageView.image = UIImage(named: "\(selectedImage)")
+            cell.profileImageView.clipsToBounds = true
+            cell.profileImageView.layer.cornerRadius = 25
+            cell.profileImageView.layer.borderColor = UIColor(named: "point")?.cgColor
+            cell.profileImageView.layer.borderWidth = 4
+            cell.backgroundColor = .darkGray
+            cell.layer.cornerRadius = 10
             return cell
         } else {
             let cell = settingtableView.dequeueReusableCell(withIdentifier: "SettingsTableViewCell", for: indexPath) as! SettingsTableViewCell
             
             cell.titleLabel.text = Settings[indexPath.row]
+            cell.backgroundColor = .darkGray
             
             return cell
         }
     }
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return 100
+        if indexPath.section == 0 {
+            return 80
         } else {
             return 44
         }
     }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 8
+    }
+
 }
