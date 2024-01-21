@@ -100,7 +100,7 @@ class SearchViewController: UIViewController {
     
     func configureView() {
         
-        title = "\(userName)님의 새싹쇼핑"
+//        title = "\(userName)님의 새싹쇼핑"
         
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         self.navigationItem.hidesBackButton = true
@@ -149,6 +149,10 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedKeyword = list[indexPath.row]
         searchBar.text = selectedKeyword
+        
+        let viewController = storyboard?.instantiateViewController(identifier: SearchResultViewController.identifier) as! SearchResultViewController
+        viewController.searchKeyword = searchBar.text ?? ""
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

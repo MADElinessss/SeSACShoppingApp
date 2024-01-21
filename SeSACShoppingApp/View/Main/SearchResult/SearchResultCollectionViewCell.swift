@@ -19,19 +19,31 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        itemCompanyLabel.textColor = .white
-        itemPriceLabel.textColor = .white
+        
         
     }
     
     func configureCell(with item: Item) {
-        itemTitleLabel.text = item.title
-        itemPriceLabel.text = item.lprice
+        itemCompanyLabel.textColor = .white
+        itemPriceLabel.textColor = .white
+        itemTitleLabel.numberOfLines = 2
+        
+        let modifiedTitle = item.title.replacingOccurrences(of: "<b>", with: "").replacingOccurrences(of: "</b>", with: "")
+        itemTitleLabel.text = modifiedTitle
+
+        if let priceNumber = Int(item.lprice) {
+            let formatter = NumberFormatter()
+            formatter.numberStyle = .decimal
+            let formattedPrice = formatter.string(from: NSNumber(value: priceNumber)) ?? item.lprice
+            itemPriceLabel.text = formattedPrice
+        } else {
+            itemPriceLabel.text = item.lprice
+        }
         itemCompanyLabel.text = item.mallName
         
         if let url = URL(string: item.image) {
             itemImage.kf.setImage(with: url)
         }
+        itemImage.layer.cornerRadius = 10
     }
-    
 }

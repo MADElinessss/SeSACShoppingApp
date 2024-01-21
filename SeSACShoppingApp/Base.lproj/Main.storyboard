@@ -21,11 +21,11 @@
                         <viewLayoutGuide key="safeArea" id="aB7-wY-KHo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="쇼핑목록" image="menucard.fill" catalog="system" id="r8e-dr-55Z"/>
+                    <navigationItem key="navigationItem" title="쇼핑목록" id="eOV-CG-4Le"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T0M-3w-H5C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7095" y="-328"/>
+            <point key="canvasLocation" x="8020.6106870229005" y="-328.16901408450707"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ium-Ft-5Jv">
@@ -40,7 +40,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="lcO-WN-POX" kind="relationship" relationship="viewControllers" id="mh3-ZL-ePV"/>
-                        <segue destination="Xtr-Dn-4YO" kind="relationship" relationship="viewControllers" id="Pe4-cD-GAQ"/>
+                        <segue destination="VD2-It-KTG" kind="relationship" relationship="viewControllers" id="Pe4-cD-GAQ"/>
                         <segue destination="nwW-nL-Msb" kind="relationship" relationship="viewControllers" id="Xdd-jA-rTX"/>
                     </connections>
                 </tabBarController>
@@ -243,8 +243,9 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PBU-xf-jlq">
                                 <rect key="frame" x="16" y="134" width="361" height="684"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="euC-KL-GnN">
-                                    <size key="itemSize" width="164" height="171"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="euC-KL-GnN">
+                                    <size key="itemSize" width="150" height="200"/>
+                                    <size key="estimatedItemSize" width="150" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -257,7 +258,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="150" height="200"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -295,7 +295,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="dateSortButton" destination="PLO-CZ-MEa" id="uk2-5E-D6g"/>
                         <outlet property="itemCollectionView" destination="PBU-xf-jlq" id="wAY-Rs-s6p"/>
+                        <outlet property="priceAscendingButton" destination="M00-vH-7IM" id="zKo-fM-PkK"/>
+                        <outlet property="priceDescendingButton" destination="CgB-Id-UEp" id="Dc5-lz-idw"/>
+                        <outlet property="simSortButton" destination="tfV-7Z-lMq" id="VkP-X7-x4q"/>
                         <outlet property="totalCountLabel" destination="xuF-bC-72R" id="GgU-1L-mjd"/>
                     </connections>
                 </viewController>
@@ -347,6 +351,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="DUX-aF-OyH">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="AccentColor"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -378,6 +385,28 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BYo-N6-H0W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7063.3587786259541" y="1089.4366197183099"/>
+        </scene>
+        <!--쇼핑목록-->
+        <scene sceneID="aNq-NV-wqY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VD2-It-KTG" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="쇼핑목록" image="menucard.fill" catalog="system" id="r8e-dr-55Z"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PRc-Sl-Wah">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="AccentColor"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Xtr-Dn-4YO" kind="relationship" relationship="rootViewController" id="pIM-1F-q1t"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qBa-CU-Jf1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7093.8931297709923" y="-328.16901408450707"/>
         </scene>
     </scenes>
     <resources>
