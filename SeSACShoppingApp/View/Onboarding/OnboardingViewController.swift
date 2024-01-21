@@ -18,23 +18,14 @@ class OnboardingViewController: UIViewController {
         
         configureView()
         setBackGroundColor()
+        UserDefaults.standard.set(true, forKey: "UserState")
     }
     
     @IBAction func startButtonTapped(_ sender: UIButton) {
         let viewController = storyboard?.instantiateViewController(withIdentifier: ProfileSettingViewController.identifier) as! ProfileSettingViewController
         
         navigationController?.pushViewController(viewController, animated: true)
-        checkFirst()
-    }
-    
-    func checkFirst() {
-        UserDefaults.standard.set(true, forKey: "UserState")
-        
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "mainTabBarController") as! UITabBarController
-        
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
+
     }
     
     func configureView() {
