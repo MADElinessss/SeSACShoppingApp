@@ -72,7 +72,7 @@ class SearchResultViewController: UIViewController {
         page = 1
     }
 
-    // MARK: API 호출 및 데이터 가져오기
+    // MARK: fetchItems - API 호출 및 데이터 가져오기
     private func fetchItems(sort: String) {
         manager.callRequest(searchKeyword, sort, page: page) { [weak self] searchResult in
             guard let self = self else { return }
@@ -83,12 +83,18 @@ class SearchResultViewController: UIViewController {
                 self.items.append(contentsOf: searchResult.items ?? [])
             }
             
+            if let firstItemID = self.items.first?.productID {
+                print("First item ID: \(firstItemID)")
+            }
+            
             if let totalNumber = searchResult.total {
                 let formatter = NumberFormatter()
                 formatter.numberStyle = .decimal
                 let formattedCount = formatter.string(from: NSNumber(value: totalNumber)) ?? "\(totalNumber)"
                 self.totalCountLabel.text = "\(formattedCount)개의 검색 결과"
             }
+            
+//            print(searchResult)
 
             // MARK: scroll to top
             itemCollectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
@@ -146,15 +152,12 @@ extension SearchResultViewController: UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // MARK: 셀 선택시 웹뷰로 연결
 
-        // 안전하게 배열에 접근
-        if let productID = searchResult?.items?[indexPath.row].productID {
-            // MARK: 검색 결과 화면으로 이동
-            let viewController = storyboard?.instantiateViewController(identifier: ItemDetailViewController.identifier) as! ItemDetailViewController
-            viewController.productId = productID
-            navigationController?.pushViewController(viewController, animated: true)
-        }
+        let productID = self.items[indexPath.item].productID
+        let viewController = storyboard?.instantiateViewController(identifier: ItemDetailViewController.identifier) as! ItemDetailViewController
+        viewController.productId = productID
+        navigationController?.pushViewController(viewController, animated: true)
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
