@@ -75,17 +75,29 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 4 {
-            UserDefaults.standard.setValue(false, forKey: "UserState")
-            let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-            let sceneDelegate = windowScene?.delegate as? SceneDelegate
             
-            let sb = UIStoryboard(name: "Onboarding", bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: OnboardingViewController.identifier) as! OnboardingViewController
+            let alert = UIAlertController(title: "처음부터 시작하기", message: "데이터를 모두 초기화하시겠습니까?🥹", preferredStyle: .alert)
             
-            let nav = UINavigationController(rootViewController: vc)
+            let okay = UIAlertAction(title: "확인", style: .default) { action in
+                UserDefaults.standard.setValue(false, forKey: "UserState")
+                let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+                let sceneDelegate = windowScene?.delegate as? SceneDelegate
+                
+                let sb = UIStoryboard(name: "Onboarding", bundle: nil)
+                let vc = sb.instantiateViewController(withIdentifier: OnboardingViewController.identifier) as! OnboardingViewController
+                
+                let nav = UINavigationController(rootViewController: vc)
+                
+                sceneDelegate?.window?.rootViewController = nav
+                sceneDelegate?.window?.makeKeyAndVisible()
+            }
+            let cancel = UIAlertAction(title: "취소", style: .cancel)
             
-            sceneDelegate?.window?.rootViewController = nav
-            sceneDelegate?.window?.makeKeyAndVisible()
+            alert.addAction(okay)
+            alert.addAction(cancel)
+            
+            self.present(alert, animated: true)
+            
         }
     }
 

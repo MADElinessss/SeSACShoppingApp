@@ -93,8 +93,6 @@ class SearchResultViewController: UIViewController {
                 let formattedCount = formatter.string(from: NSNumber(value: totalNumber)) ?? "\(totalNumber)"
                 self.totalCountLabel.text = "\(formattedCount)개의 검색 결과"
             }
-            
-//            print(searchResult)
 
             // MARK: scroll to top
             itemCollectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
@@ -154,10 +152,11 @@ extension SearchResultViewController: UICollectionViewDataSource, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
         let productID = self.items[indexPath.item].productID
+        let productTitle = self.items[indexPath.item].title.replacingOccurrences(of: "<b>", with: "").replacingOccurrences(of: "</b>", with: "")
         let viewController = storyboard?.instantiateViewController(identifier: ItemDetailViewController.identifier) as! ItemDetailViewController
         viewController.productId = productID
+        viewController.selectedItem = productTitle
         navigationController?.pushViewController(viewController, animated: true)
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
