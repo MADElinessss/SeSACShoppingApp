@@ -72,6 +72,7 @@ class ProfileSettingViewController: UIViewController {
         
         warningLabel.text = "사용할 수 있는 닉네임이에요."
         completeButton.isEnabled = true
+        UserDefaults.standard.setValue(text, forKey: "userName")
     }
     
     @IBAction func profileButtonTapped(_ sender: UIButton) {

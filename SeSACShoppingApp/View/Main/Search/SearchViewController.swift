@@ -19,7 +19,7 @@ class SearchViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var userName: String = "고객"
+    var userName = UserDefaults.standard.string(forKey: "userName") ?? "고객"
     
     var list: [String] = [] {
         didSet {
@@ -49,7 +49,7 @@ class SearchViewController: UIViewController {
     @IBAction func eraseAllButtonTapped(_ sender: UIButton) {
         UserDefaultsManager.shared.searchHistory = []
         list = []
-        tableView.reloadData()
+        updateEmptyView()
     }
     
     // MARK: 검색어 저장의 기준을 못찾아서 만듦,,🥲
@@ -77,19 +77,22 @@ class SearchViewController: UIViewController {
     }
     
     func updateEmptyView() {
-        // TODO: 검색 결과가 있으면 toggle
-        if list.count == 0 {
+        let isListEmpty = list.isEmpty
+        let isSearchTextEmpty = searchBar.text?.isEmpty ?? true
+
+        if isListEmpty && isSearchTextEmpty {
+            // 검색 기록이 비어있고, 검색어도 입력되지 않았을 때
             emptyView.isHidden = false
             tableView.isHidden = true
             eraseAllButton.isHidden = true
             titleLabel.isHidden = true
         } else {
+            // 그 외의 경우 (검색 기록이 있거나 검색어가 입력된 경우)
             emptyView.isHidden = true
             tableView.isHidden = false
             eraseAllButton.isHidden = false
             titleLabel.isHidden = false
         }
-        tableView.reloadData()
     }
 
     func configureEmptyView() {
@@ -100,10 +103,7 @@ class SearchViewController: UIViewController {
     }
     
     func configureView() {
-        
-//        title = "\(userName)님의 새싹쇼핑"
-        
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+
         self.navigationItem.hidesBackButton = true
         
         searchBar.barTintColor = .black
@@ -173,13 +173,11 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: SearchBar
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        updateEmptyView()
-        
         if searchText.isEmpty {
             list = UserDefaultsManager.shared.searchHistory
         } else {
             list = UserDefaultsManager.shared.searchHistory.filter { $0.contains(searchText) }
         }
+        updateEmptyView()
     }
 }

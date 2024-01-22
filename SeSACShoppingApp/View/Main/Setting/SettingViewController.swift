@@ -11,7 +11,7 @@ class SettingViewController: UIViewController {
 
     @IBOutlet weak var settingtableView: UITableView!
     
-    var selectedImage: String = "profile1"
+    var selectedImage = UserDefaults.standard.string(forKey: "selectedImage") ?? "profile1"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,16 +59,33 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             cell.profileImageView.layer.cornerRadius = 25
             cell.profileImageView.layer.borderColor = UIColor(named: "point")?.cgColor
             cell.profileImageView.layer.borderWidth = 4
-            cell.backgroundColor = .darkGray
+            cell.backgroundColor = UIColor(named: "darkerGray")
             cell.layer.cornerRadius = 10
             return cell
         } else {
             let cell = settingtableView.dequeueReusableCell(withIdentifier: "SettingsTableViewCell", for: indexPath) as! SettingsTableViewCell
             
             cell.titleLabel.text = Settings[indexPath.row]
-            cell.backgroundColor = .darkGray
+            cell.tintColor = .lightGray
+            cell.backgroundColor = UIColor(named: "darkerGray")
             
             return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 4 {
+            UserDefaults.standard.setValue(false, forKey: "UserState")
+            let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+            let sceneDelegate = windowScene?.delegate as? SceneDelegate
+            
+            let sb = UIStoryboard(name: "Onboarding", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: OnboardingViewController.identifier) as! OnboardingViewController
+            
+            let nav = UINavigationController(rootViewController: vc)
+            
+            sceneDelegate?.window?.rootViewController = nav
+            sceneDelegate?.window?.makeKeyAndVisible()
         }
     }
 
