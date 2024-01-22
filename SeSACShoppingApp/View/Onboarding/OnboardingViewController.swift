@@ -18,6 +18,7 @@ class OnboardingViewController: UIViewController {
         
         configureView()
         setBackGroundColor()
+        
         UserDefaults.standard.set(true, forKey: "UserState")
     }
     
@@ -37,11 +38,7 @@ class OnboardingViewController: UIViewController {
         
         onboardingImageView.image = UIImage(named: "onboarding")
         
-        startButton.setTitle("시작하기", for: [])
-        startButton.tintColor = .white
-        startButton.titleLabel?.font = .boldSystemFont(ofSize: 18)
-        startButton.backgroundColor = UIColor(named: "point")
-        startButton.layer.cornerRadius = 10
+        startButton.customButton("시작하기")
         
         let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         backBarButtonItem.tintColor = .white

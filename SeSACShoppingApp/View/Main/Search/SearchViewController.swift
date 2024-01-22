@@ -35,6 +35,7 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.titleView = UILabel.customNavigationTitle("\(userName)님의 새싹쇼핑")
         list = UserDefaultsManager.shared.searchHistory
         
         updateEmptyView()

@@ -30,6 +30,8 @@ class SearchResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.titleView = UILabel.customNavigationTitle("\(searchKeyword)")
+        
         setBackGroundColor()
         configureView()
         fetchItems(sort: "sim")

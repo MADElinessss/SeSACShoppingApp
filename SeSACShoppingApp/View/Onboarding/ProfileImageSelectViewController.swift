@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: 프로필 이미지 정하는 화면
 class ProfileImageSelectViewController: UIViewController {
 
     @IBOutlet weak var profileImageView: UIImageView!
@@ -15,30 +16,36 @@ class ProfileImageSelectViewController: UIViewController {
     
     var selectedImage: String = "profile1"
     
+    var savedProfileImage: String = UserDefaults.standard.string(forKey: "selectedImage") ?? "profile1" {
+        didSet {
+            profileImageView.reloadInputViews()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setBackGroundColor()
         configureView()
         configureCollectionView()
+        navigationItem.titleView = UILabel.customNavigationTitle("프로필 이미지 설정")
         
+    }
+    
+    @IBAction func completeButtonTapped(_ sender: UIButton) {
+        UserDefaults.standard.setValue(selectedImage, forKey: "selectedImage")
+        navigationController?.popViewController(animated: true)
     }
     
     func configureView() {
         
-        profileImageView.image = UIImage(named: "\(selectedImage)")
+        profileImageView.image = UIImage(named: "\(savedProfileImage)")
         profileImageView.clipsToBounds = true
         profileImageView.layer.cornerRadius = 65
         profileImageView.layer.borderColor = UIColor(named: "point")?.cgColor
         profileImageView.layer.borderWidth = 6
         
-        // TODO: 디자인 시스템으로 뺄 것,,
-        completeButton.setTitle("완료", for: .normal)
-        completeButton.tintColor = .white
-        completeButton.titleLabel?.font = .boldSystemFont(ofSize: 18)
-        completeButton.backgroundColor = UIColor(named: "point")
-        completeButton.layer.cornerRadius = 10
-        
+        completeButton.customButton("완료")
     }
 }
 
@@ -60,15 +67,31 @@ extension ProfileImageSelectViewController: UICollectionViewDelegate, UICollecti
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfileCollectionViewCell", for: indexPath) as! ProfileCollectionViewCell
-        
-        cell.profileButton.setImage(UIImage(named: "profile\(indexPath.item+1)"), for: .normal)
-        cell.profileButton.clipsToBounds = true
-        cell.profileButton.layer.cornerRadius = 50
-        cell.profileButton.layer.borderColor = UIColor(named: "point")?.cgColor
-        cell.profileButton.layer.borderWidth = 6
-        
+
+        cell.profileImageView.image = UIImage(named: "profile\(indexPath.row + 1)")
+        cell.profileImageView.layer.cornerRadius = 30
+        cell.profileImageView.isUserInteractionEnabled = true
+
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        cell.profileImageView.addGestureRecognizer(tapGesture)
+        cell.profileImageView.tag = indexPath.row
+
         return cell
+    }
+
+    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+        if let tappedImageView = sender.view as? UIImageView {
+            let tappedIndex = tappedImageView.tag
+            selectedImage = "profile\(tappedIndex + 1)"
+            profileImageView.image = UIImage(named: selectedImage)
+
+            for i in 0..<collectionView.numberOfItems(inSection: 0) {
+                if let cell = collectionView.cellForItem(at: IndexPath(item: i, section: 0)) as? ProfileCollectionViewCell {
+                    cell.profileImageView.layer.borderColor = (i == tappedIndex) ? UIColor(named: "point")?.cgColor : UIColor.clear.cgColor
+                    cell.profileImageView.layer.borderWidth = 4
+                }
+            }
+        }
     }
 }

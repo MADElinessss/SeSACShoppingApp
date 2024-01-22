@@ -19,6 +19,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vPW-y2-B4F">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="AccentColor"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -29,7 +32,7 @@
             </objects>
             <point key="canvasLocation" x="2741.2213740458014" y="-2.1126760563380285"/>
         </scene>
-        <!--Onboarding View Controller-->
+        <!--프로필 설정-->
         <scene sceneID="wCR-40-fHT">
             <objects>
                 <viewController storyboardIdentifier="OnboardingViewController" id="HdZ-5U-J5o" customClass="OnboardingViewController" customModule="SeSACShoppingApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -52,13 +55,14 @@
                                     <constraint firstAttribute="height" constant="250" id="PFQ-9U-TbG"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uQp-jh-Eei">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uQp-jh-Eei">
                                 <rect key="frame" x="16" y="744" width="361" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="z60-X5-0eD"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title=""/>
                                 <connections>
                                     <action selector="startButtonTapped:" destination="HdZ-5U-J5o" eventType="touchUpInside" id="3kw-2M-bIK"/>
                                 </connections>
@@ -78,7 +82,7 @@
                             <constraint firstItem="uQp-jh-Eei" firstAttribute="centerX" secondItem="0S1-48-L53" secondAttribute="centerX" id="vFc-gc-MLX"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="LXr-fj-s2t"/>
+                    <navigationItem key="navigationItem" title="프로필 설정" id="LXr-fj-s2t"/>
                     <connections>
                         <outlet property="appNameLabel" destination="OqA-1T-CMq" id="ZKd-gl-AfQ"/>
                         <outlet property="onboardingImageView" destination="Ayd-nw-BPr" id="EBg-wz-tVT"/>
@@ -115,12 +119,13 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="TgN-2u-zNy">
-                                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nVB-dL-nO3">
-                                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
+                                        <size key="customSize" width="100" height="100"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -129,8 +134,11 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="VdV-0X-NKn"/>
                                 </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="completeButtonTapped:" destination="PcA-3c-Mvq" eventType="touchUpInside" id="DFi-61-AXK"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dvv-Tl-3Bs"/>
@@ -194,8 +202,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="QuS-b6-cAb"/>
                                 </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
                                     <action selector="completeButtonTapped:" destination="ja4-Ym-tkf" eventType="touchUpInside" id="sz8-v7-dpr"/>
                                 </connections>

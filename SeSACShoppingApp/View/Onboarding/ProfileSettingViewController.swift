@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: 프로필 + 닉네임 설정
 class ProfileSettingViewController: UIViewController {
     
     @IBOutlet weak var profileButton: UIButton!
@@ -14,8 +15,25 @@ class ProfileSettingViewController: UIViewController {
     @IBOutlet weak var warningLabel: UILabel!
     @IBOutlet weak var completeButton: UIButton!
     
+    var savedProfileImage: String = UserDefaults.standard.string(forKey: "selectedImage") ?? "profile1" {
+        didSet {
+            profileButton.reloadInputViews()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        savedProfileImage = UserDefaults.standard.string(forKey: "selectedImage") ?? "profile1"
+
+        profileButton.setImage(UIImage(named: savedProfileImage), for: .normal)
+
+        navigationItem.titleView = UILabel.customNavigationTitle("프로필 설정")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         completeButton.isEnabled = false
         setBackGroundColor()
@@ -52,7 +70,6 @@ class ProfileSettingViewController: UIViewController {
             return
         }
         
-        // 모든 조건을 통과하면 경고 레이블 숨김
         warningLabel.text = "사용할 수 있는 닉네임이에요."
         completeButton.isEnabled = true
     }
@@ -67,7 +84,7 @@ class ProfileSettingViewController: UIViewController {
         
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: "mainTabBarController") as! UITabBarController
-        
+    
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }
@@ -75,6 +92,7 @@ class ProfileSettingViewController: UIViewController {
     func configureView() {
         
         title = "프로필 설정"
+        
         navigationItem.titleView?.tintColor = UIColor(named: "point")
         
         let bottomLine = CALayer()
@@ -83,8 +101,7 @@ class ProfileSettingViewController: UIViewController {
         nicknameTextField.borderStyle = .none
         nicknameTextField.layer.addSublayer(bottomLine)
         
-        let random = Int.random(in: 1...14)
-        profileButton.setImage(UIImage(named: "profile\(random)"), for: .normal)
+        profileButton.setImage(UIImage(named: savedProfileImage), for: .normal)
         profileButton.clipsToBounds = true
         profileButton.layer.cornerRadius = 65
         profileButton.layer.borderColor = UIColor(named: "point")?.cgColor

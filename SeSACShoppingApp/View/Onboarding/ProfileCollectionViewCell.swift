@@ -9,7 +9,7 @@ import UIKit
 
 class ProfileCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var profileButton: UIButton!
+    @IBOutlet weak var profileImageView: UIImageView!
     
     static let identifier = "ProfileCollectionViewCell"
     
