@@ -10,7 +10,6 @@ import UIKit
 class SearchViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
-    
     @IBOutlet weak var eraseAllButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var emptyView: UIView!
@@ -29,8 +28,6 @@ class SearchViewController: UIViewController {
     var originalList: [String] = []
     
     var itemList: [Item] = []
- 
-    let manager = APIManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()

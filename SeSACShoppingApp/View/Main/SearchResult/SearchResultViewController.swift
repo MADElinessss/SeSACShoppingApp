@@ -26,6 +26,11 @@ class SearchResultViewController: UIViewController {
     var searchResult: Search?
     
     var searchKeyword: String = ""
+    var sorting: String = "sim"
+    
+    var page = 1
+    
+    var isLastPage = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,29 +47,41 @@ class SearchResultViewController: UIViewController {
     @IBAction func accuracySortButton(_ sender: UIButton) {
         fetchItems(sort: "sim")
         updateButtonStyles(selectedButton: sender)
+        sorting = "sim"
+        page = 1
     }
 
     @IBAction func recentSortButton(_ sender: UIButton) {
         fetchItems(sort: "date")
         updateButtonStyles(selectedButton: sender)
+        sorting = "date"
+        page = 1
     }
 
     @IBAction func priceAscendingButton(_ sender: UIButton) {
         fetchItems(sort: "dsc")
         updateButtonStyles(selectedButton: sender)
+        sorting = "dsc"
+        page = 1
     }
 
     @IBAction func priceDescendingButton(_ sender: UIButton) {
         fetchItems(sort: "asc")
         updateButtonStyles(selectedButton: sender)
+        sorting = "asc"
+        page = 1
     }
 
     // MARK: API 호출 및 데이터 가져오기
     private func fetchItems(sort: String) {
-        manager.callRequest(searchKeyword, sort) { [weak self] searchResult in
+        manager.callRequest(searchKeyword, sort, page: page) { [weak self] searchResult in
             guard let self = self else { return }
-            self.searchResult = searchResult
-            self.items = searchResult.items ?? []
+            
+            if self.page == 1 {
+                self.items = searchResult.items ?? []
+            } else {
+                self.items.append(contentsOf: searchResult.items ?? [])
+            }
             
             if let totalNumber = searchResult.total {
                 let formatter = NumberFormatter()
@@ -73,6 +90,9 @@ class SearchResultViewController: UIViewController {
                 self.totalCountLabel.text = "\(formattedCount)개의 검색 결과"
             }
 
+            // MARK: scroll to top
+            itemCollectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+            
             self.itemCollectionView.reloadData()
         }
     }
@@ -157,5 +177,13 @@ extension SearchResultViewController: UICollectionViewDataSource, UICollectionVi
     // 섹션 내부 여백 설정:
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        if indexPath.row == items.count - 1 && !isLastPage {
+            page += 1
+            fetchItems(sort: sorting)
+        }
     }
 }
