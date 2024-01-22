@@ -101,6 +101,7 @@ class ProfileSettingViewController: UIViewController {
         bottomLine.backgroundColor = UIColor.white.cgColor
         nicknameTextField.borderStyle = .none
         nicknameTextField.layer.addSublayer(bottomLine)
+        nicknameTextField.text = UserDefaults.standard.string(forKey: "userName") ?? ""
         
         profileButton.setImage(UIImage(named: savedProfileImage), for: .normal)
         profileButton.clipsToBounds = true

@@ -19,8 +19,7 @@ class ItemDetailViewController: UIViewController {
         super.viewDidLoad()
         
         setBackGroundColor()
-        
-        navigationItem.titleView = UILabel.customNavigationTitle(selectedItem)
+        configureView()
         
         let url = URL(string: "https://msearch.shopping.naver.com/product/\(productId)")
         
@@ -28,5 +27,23 @@ class ItemDetailViewController: UIViewController {
             let request = URLRequest(url: url)
             webView.load(request)
         }
+    }
+    
+    func configureView() {
+        let isLiked = UserDefaults.standard.bool(forKey: productId)
+        let button = UIBarButtonItem(image: UIImage(systemName: isLiked ? "heart.fill" : "heart"), style: .plain, target: self, action: #selector(heartButtonTapped))
+        
+        navigationItem.titleView = UILabel.customNavigationTitle(selectedItem)
+        navigationItem.rightBarButtonItem = button
+        
+    }
+    
+    // MARK: 🆘 SOS - 상세 페이지에 있는 좋아요 버튼 로직..뭔가 엄청 비효율적인 것 같아요..😭
+    @objc func heartButtonTapped() {
+        var isLiked = UserDefaults.standard.bool(forKey: productId)
+        isLiked.toggle()
+        let button = UIBarButtonItem(image: UIImage(systemName: isLiked ? "heart.fill" : "heart"), style: .plain, target: self, action: #selector(heartButtonTapped))
+        navigationItem.rightBarButtonItem = button
+        UserDefaults.standard.setValue(isLiked, forKey: productId)
     }
 }

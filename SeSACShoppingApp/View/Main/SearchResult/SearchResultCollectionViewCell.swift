@@ -16,11 +16,14 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var itemPriceLabel: UILabel!
     @IBOutlet weak var itemTitleLabel: UILabel!
     
+    var likeButtonTapped: (() -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        
-        
+    }
+    
+    @IBAction func likeButtonAction(_ sender: UIButton) {
+        likeButtonTapped?()
     }
     
     func configureCell(with item: Item) {

@@ -32,6 +32,12 @@ class SearchResultViewController: UIViewController {
     
     var isLastPage = false
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        itemCollectionView.reloadData()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -83,10 +89,6 @@ class SearchResultViewController: UIViewController {
                 self.items.append(contentsOf: searchResult.items ?? [])
             }
             
-            if let firstItemID = self.items.first?.productID {
-                print("First item ID: \(firstItemID)")
-            }
-            
             if let totalNumber = searchResult.total {
                 let formatter = NumberFormatter()
                 formatter.numberStyle = .decimal
@@ -111,17 +113,16 @@ class SearchResultViewController: UIViewController {
         updateButtonStyles(selectedButton: simSortButton)
     }
     
+    // MARK: 정렬 버튼 디자인 로직
     func updateButtonStyles(selectedButton: UIButton) {
         let buttons = [simSortButton, dateSortButton, priceAscendingButton, priceDescendingButton]
         
         for button in buttons {
             if button == selectedButton {
-                // 선택된 버튼: 흰 배경, 검은 글씨
                 button?.backgroundColor = .white
                 button?.setTitleColor(.black, for: .normal)
                 button?.layer.borderWidth = 0
             } else {
-                // 선택되지 않은 버튼: 검은 배경, 흰 글씨, 흰 border
                 button?.backgroundColor = .black
                 button?.setTitleColor(.white, for: .normal)
                 button?.layer.borderWidth = 1
@@ -146,6 +147,17 @@ extension SearchResultViewController: UICollectionViewDataSource, UICollectionVi
         let item = items[indexPath.row]
         cell.configureCell(with: item)
         
+        // MARK: 좋아요 버튼 관련 로직
+        let productId = self.items[indexPath.item].productID
+        var isLiked = UserDefaults.standard.bool(forKey: productId)
+        cell.likeButton.setImage(UIImage(systemName: isLiked ? "heart.fill" : "heart"), for: .normal)
+        
+        cell.likeButtonTapped = {
+            isLiked.toggle()
+            UserDefaults.standard.setValue(isLiked, forKey: productId)
+            cell.likeButton.setImage(UIImage(systemName: isLiked ? "heart.fill" : "heart"), for: .normal)
+        }
+        
         return cell
     }
     
@@ -160,26 +172,25 @@ extension SearchResultViewController: UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        // 화면 너비의 절반에서 30을 뺀 값
         let cellWidth = (collectionView.bounds.width / 2)
-        // 셀 너비의 1.3배 높이
         let cellHeight = cellWidth * 1.3
         
         return CGSize(width: cellWidth, height: cellHeight)
     }
     
-    // 라인 간격 설정 (수직 간격):
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
-    }
-    // 아이템 간격 설정 (수평 간격):
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
-    }
-    // 섹션 내부 여백 설정:
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-    }
+    // MARK: 🆘 SOS - 컬렉션뷰 레이아웃이 마음대로 적용되지 않아요,,아래 코드도 모두 적용 안된 것,,
+//    // 라인 간격 설정 (수직 간격):
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+//        return 10
+//    }
+//    // 아이템 간격 설정 (수평 간격):
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//        return 10
+//    }
+//    // 섹션 내부 여백 설정:
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+//        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+//    }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
