@@ -9,4 +9,35 @@ import UIKit
 
 struct LocalNotificationManager {
     
+    func setNotification() {
+        // MARK: Notification 1. Content
+        let content = UNMutableNotificationContent()
+        let title = "장바구니 확인해보셨나요?"
+        let body = "찜한 상품을 구매해보세여!"
+        
+        // MARK: Notification 2. Trigger
+        // 📅 Calendar Trigger
+        let calendar = Calendar.current
+        let currentDate = Date()
+        
+        var component = DateComponents()
+        component.hour = 23
+        component.minute = 9
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        dateFormatter.dateFormat = "EEEE"
+        let weekdayString = dateFormatter.string(from: currentDate)
+        
+        content.title = "(광고) 🛒 \(weekdayString)은 쇼핑의 날!"
+        content.body = body
+        
+        let calendarTrigger = UNCalendarNotificationTrigger(dateMatching: component, repeats: false)
+        
+        // MARK: Notification 3. Request
+        let request = UNNotificationRequest(identifier: "\(Date())", content: content, trigger: calendarTrigger)
+        
+        // MARK: Notification 4. iOS System에게 전달
+        UNUserNotificationCenter.current().add(request)
+    }
 }
