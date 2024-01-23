@@ -31,6 +31,8 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
         itemPriceLabel.textColor = .white
         itemTitleLabel.numberOfLines = 2
         
+        likeButton.layer.cornerRadius = 15
+        
         let modifiedTitle = item.title.replacingOccurrences(of: "<b>", with: "").replacingOccurrences(of: "</b>", with: "")
         itemTitleLabel.text = modifiedTitle
 

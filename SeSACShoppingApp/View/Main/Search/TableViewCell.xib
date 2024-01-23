@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,19 +19,23 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XiF-yq-UBB">
-                        <rect key="frame" x="4" y="5" width="49.666666666666664" height="34.333333333333336"/>
+                        <rect key="frame" x="0.0" y="8" width="49.666666666666664" height="28"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bxh-Yl-2Hk">
-                        <rect key="frame" x="61.666666666666657" y="13.666666666666664" width="36" height="17"/>
+                        <rect key="frame" x="57.666666666666657" y="13.666666666666664" width="36" height="17"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                         <color key="textColor" systemColor="systemGrayColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWB-ne-jQK">
-                        <rect key="frame" x="281.66666666666669" y="11.666666666666664" width="22.333333333333314" height="21"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWB-ne-jQK">
+                        <rect key="frame" x="297" y="14.666666666666664" width="15" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="nWB-ne-jQK" secondAttribute="height" multiplier="1:1" id="agi-hR-q4U"/>
+                            <constraint firstAttribute="width" constant="15" id="gop-A0-NtG"/>
+                        </constraints>
                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal" image="xmark" catalog="system"/>
@@ -42,16 +46,19 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
+                    <constraint firstItem="XiF-yq-UBB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="2b4-C5-hyM"/>
                     <constraint firstItem="Bxh-Yl-2Hk" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="6b3-Mx-q02"/>
-                    <constraint firstAttribute="trailing" secondItem="nWB-ne-jQK" secondAttribute="trailing" constant="16" id="W39-xr-lcC"/>
+                    <constraint firstAttribute="trailing" secondItem="nWB-ne-jQK" secondAttribute="trailing" constant="8" id="W39-xr-lcC"/>
                     <constraint firstItem="XiF-yq-UBB" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="dCb-m8-lyk"/>
                     <constraint firstItem="Bxh-Yl-2Hk" firstAttribute="leading" secondItem="XiF-yq-UBB" secondAttribute="trailing" constant="8" id="df2-PI-61b"/>
-                    <constraint firstItem="XiF-yq-UBB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="4" id="jMS-55-67I"/>
+                    <constraint firstItem="XiF-yq-UBB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="jMS-55-67I"/>
+                    <constraint firstAttribute="bottom" secondItem="XiF-yq-UBB" secondAttribute="bottom" constant="8" id="rSu-tb-cMZ"/>
                     <constraint firstItem="nWB-ne-jQK" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="w72-bA-NDj"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="deleteButton" destination="nWB-ne-jQK" id="b73-CK-ErK"/>
                 <outlet property="historyLabel" destination="Bxh-Yl-2Hk" id="fOB-Sp-PQT"/>
             </connections>
             <point key="canvasLocation" x="138.93129770992365" y="19.718309859154932"/>
@@ -61,7 +68,7 @@
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

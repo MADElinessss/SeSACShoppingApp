@@ -28,6 +28,8 @@
 		C1381B7C2B5E794B001A5285 /* LikedItemsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1381B7A2B5E794B001A5285 /* LikedItemsTableViewCell.xib */; };
 		C1381B832B5E7B06001A5285 /* RecommendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1381B812B5E7B06001A5285 /* RecommendCollectionViewCell.swift */; };
 		C1381B842B5E7B06001A5285 /* RecommendCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1381B822B5E7B06001A5285 /* RecommendCollectionViewCell.xib */; };
+		C1381B932B5F7F2C001A5285 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1381B922B5F7F2C001A5285 /* Constants.swift */; };
+		C1381BB82B5FFB6A001A5285 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1381BB72B5FFB6A001A5285 /* LocalNotificationManager.swift */; };
 		C148B88E2B5904F400795223 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C148B88D2B5904F400795223 /* AppDelegate.swift */; };
 		C148B8902B5904F400795223 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C148B88F2B5904F400795223 /* SceneDelegate.swift */; };
 		C148B8922B5904F400795223 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C148B8912B5904F400795223 /* ViewController.swift */; };
@@ -69,6 +71,8 @@
 		C1381B7A2B5E794B001A5285 /* LikedItemsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LikedItemsTableViewCell.xib; sourceTree = "<group>"; };
 		C1381B812B5E7B06001A5285 /* RecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCollectionViewCell.swift; sourceTree = "<group>"; };
 		C1381B822B5E7B06001A5285 /* RecommendCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendCollectionViewCell.xib; sourceTree = "<group>"; };
+		C1381B922B5F7F2C001A5285 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C1381BB72B5FFB6A001A5285 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		C148B88A2B5904F400795223 /* SeSACShoppingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACShoppingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C148B88D2B5904F400795223 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C148B88F2B5904F400795223 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +135,7 @@
 				C148B8A32B59051A00795223 /* APIKey.swift */,
 				C1381B5A2B5A9CF6001A5285 /* Search.swift */,
 				C1381B6B2B5BF412001A5285 /* Settings.swift */,
+				C1381B922B5F7F2C001A5285 /* Constants.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -140,6 +145,7 @@
 			children = (
 				C1381B502B5A99C1001A5285 /* APIManager.swift */,
 				C1381B582B5A9A4A001A5285 /* UserDefaultsManager.swift */,
+				C1381BB72B5FFB6A001A5285 /* LocalNotificationManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -365,6 +371,7 @@
 				C148B8A72B59075400795223 /* OnboardingViewController.swift in Sources */,
 				C148B8AE2B59195800795223 /* ProfileImageSelectViewController.swift in Sources */,
 				C1381B482B5A8B58001A5285 /* SearchResultViewController.swift in Sources */,
+				C1381BB82B5FFB6A001A5285 /* LocalNotificationManager.swift in Sources */,
 				C148B8A42B59051A00795223 /* APIKey.swift in Sources */,
 				C148B8902B5904F400795223 /* SceneDelegate.swift in Sources */,
 				C1381B5E2B5BD6B0001A5285 /* ItemDetailViewController.swift in Sources */,
@@ -377,6 +384,7 @@
 				C1381B652B5BF1F2001A5285 /* SettingsTableViewCell.swift in Sources */,
 				C1381B6C2B5BF412001A5285 /* Settings.swift in Sources */,
 				C148B8BB2B59391300795223 /* SettingViewController.swift in Sources */,
+				C1381B932B5F7F2C001A5285 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

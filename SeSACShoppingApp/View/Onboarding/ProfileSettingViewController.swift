@@ -116,12 +116,7 @@ class ProfileSettingViewController: UIViewController {
         warningLabel.textColor = UIColor(named: "point")
         warningLabel.font = .systemFont(ofSize: 12, weight: .medium)
         
-        
-        completeButton.setTitle("완료", for: .normal)
-        completeButton.tintColor = .white
-        completeButton.titleLabel?.font = .boldSystemFont(ofSize: 18)
-        completeButton.backgroundColor = UIColor(named: "point")
-        completeButton.layer.cornerRadius = 10
+        completeButton.customButton("완료")
         
         let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         backBarButtonItem.tintColor = .white

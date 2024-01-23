@@ -91,7 +91,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="C8Y-PO-UXV">
-                                <rect key="frame" x="16" y="103" width="300" height="56"/>
+                                <rect key="frame" x="16" y="103" width="361" height="56"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                 <connections>
                                     <outlet property="delegate" destination="HTc-Ib-tKV" id="5CA-He-FUn"/>
@@ -142,17 +142,6 @@
                                     <action selector="eraseAllButtonTapped:" destination="HTc-Ib-tKV" eventType="touchUpInside" id="PV8-da-Ww5"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHz-Fd-Eg4">
-                                <rect key="frame" x="316" y="115" width="61" height="29"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Search">
-                                    <color key="titleColor" name="AccentColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="searchButtonTapped:" destination="HTc-Ib-tKV" eventType="touchUpInside" id="IkL-Cy-Yco"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EQe-7B-B9D"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -164,14 +153,11 @@
                             <constraint firstItem="ZiV-b1-SVq" firstAttribute="top" secondItem="C8Y-PO-UXV" secondAttribute="bottom" constant="4" id="DmW-Q6-efJ"/>
                             <constraint firstItem="EQe-7B-B9D" firstAttribute="trailing" secondItem="ZiV-b1-SVq" secondAttribute="trailing" constant="16" id="Ia2-py-irb"/>
                             <constraint firstItem="KHU-dT-Qr3" firstAttribute="leading" secondItem="EQe-7B-B9D" secondAttribute="leading" constant="16" id="KM7-9L-Xf7"/>
-                            <constraint firstItem="sHz-Fd-Eg4" firstAttribute="leading" secondItem="C8Y-PO-UXV" secondAttribute="trailing" id="MIM-Oo-GTE"/>
                             <constraint firstItem="BQs-Bu-yau" firstAttribute="centerX" secondItem="HoZ-cd-10n" secondAttribute="centerX" id="PsH-Fn-1dA"/>
                             <constraint firstItem="EQe-7B-B9D" firstAttribute="bottom" secondItem="KHU-dT-Qr3" secondAttribute="bottom" id="WUw-NE-Neu"/>
-                            <constraint firstItem="C8Y-PO-UXV" firstAttribute="trailing" secondItem="EQe-7B-B9D" secondAttribute="trailing" constant="-77" id="Yi2-EW-H3X"/>
+                            <constraint firstItem="C8Y-PO-UXV" firstAttribute="trailing" secondItem="EQe-7B-B9D" secondAttribute="trailing" constant="-16" id="Yi2-EW-H3X"/>
                             <constraint firstItem="HYs-ll-Eid" firstAttribute="leading" secondItem="EQe-7B-B9D" secondAttribute="leading" constant="16" id="aTs-x2-rt3"/>
                             <constraint firstItem="EQe-7B-B9D" firstAttribute="trailing" secondItem="KHU-dT-Qr3" secondAttribute="trailing" constant="16" id="fHN-tY-I7a"/>
-                            <constraint firstItem="EQe-7B-B9D" firstAttribute="trailing" secondItem="sHz-Fd-Eg4" secondAttribute="trailing" constant="16" id="gxB-pn-KmK"/>
-                            <constraint firstItem="sHz-Fd-Eg4" firstAttribute="top" secondItem="EQe-7B-B9D" secondAttribute="top" constant="12" id="iam-xh-wK3"/>
                             <constraint firstItem="C8Y-PO-UXV" firstAttribute="top" secondItem="EQe-7B-B9D" secondAttribute="top" id="ihD-2l-dkK"/>
                             <constraint firstItem="KHU-dT-Qr3" firstAttribute="top" secondItem="HYs-ll-Eid" secondAttribute="bottom" constant="12" id="kcR-Hq-bxu"/>
                             <constraint firstItem="BQs-Bu-yau" firstAttribute="centerY" secondItem="HoZ-cd-10n" secondAttribute="centerY" id="urd-bv-Pvc"/>

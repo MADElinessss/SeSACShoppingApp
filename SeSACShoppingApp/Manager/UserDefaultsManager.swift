@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class UserDefaultsManager {
     
     private init() { }
@@ -15,8 +14,7 @@ class UserDefaultsManager {
     static let shared = UserDefaultsManager()
     
     enum UserDefaultsKey: String {
-        case source
-        case target
+        case searchHistory
     }
     
     let ud = UserDefaults.standard
@@ -27,26 +25,6 @@ class UserDefaultsManager {
         }
         set {
             ud.set(newValue, forKey: "searchHistory")
-        }
-    }
-    
-    var source: String {
-        get {
-            ud.string(forKey: UserDefaultsKey.source.rawValue) ?? "ko"
-            // 사용: UserDefaultsManager().source
-        }
-        set {
-            ud.set(newValue, forKey: UserDefaultsKey.source.rawValue)
-            // 사용: UserDefaultsManager().source = userSelect <- newValue
-        }
-    }
-    
-    var target: String {
-        get {
-            ud.string(forKey: UserDefaultsKey.target.rawValue) ?? "ko"
-        }
-        set {
-            ud.set(newValue, forKey: UserDefaultsKey.target.rawValue)
         }
     }
 }

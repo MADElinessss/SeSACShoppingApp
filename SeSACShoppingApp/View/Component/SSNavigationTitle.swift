@@ -8,7 +8,6 @@
 import UIKit
 
 extension UILabel {
-    
     static func customNavigationTitle(_ title: String) -> UILabel {
         let titleLabel = UILabel()
         titleLabel.text = title

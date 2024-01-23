@@ -10,6 +10,7 @@ import UIKit
 class TableViewCell: UITableViewCell {
 
     @IBOutlet weak var historyLabel: UILabel!
+    @IBOutlet weak var deleteButton: UIButton!
     
     static let identifier: String = "TableViewCell"
     var deleteButtonTappedHandler: (() -> Void)?

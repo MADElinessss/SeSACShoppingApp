@@ -172,26 +172,20 @@ extension SearchResultViewController: UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellWidth = (collectionView.bounds.width / 2)
-        let cellHeight = cellWidth * 1.3
+        let flowLayout = UICollectionViewFlowLayout()
+        let leftRightInset: CGFloat = 16
+        let topBottomInset: CGFloat = 16
+        let inter: CGFloat = 8
         
-        return CGSize(width: cellWidth, height: cellHeight)
+        let column: CGFloat = 2
+//        let width: CGFloat = (UIScreen.main.bounds.width - (2 * leftRightInset) - inter) / column
+        let width: CGFloat = UIScreen.main.bounds.width * 0.4
+        let height: CGFloat = width * 1.6
+        
+//        flowLayout.sectionInset = .init(top: 10, left: 16, bottom: 10, right: 16)
+        return CGSize(width: width, height: height)
     }
-    
-    // MARK: 🆘 SOS - 컬렉션뷰 레이아웃이 마음대로 적용되지 않아요,,아래 코드도 모두 적용 안된 것,,
-//    // 라인 간격 설정 (수직 간격):
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        return 10
-//    }
-//    // 아이템 간격 설정 (수평 간격):
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//        return 10
-//    }
-//    // 섹션 내부 여백 설정:
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-//    }
-    
+
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
         if indexPath.row == items.count - 1 && !isLastPage {

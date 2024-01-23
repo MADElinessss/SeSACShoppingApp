@@ -49,30 +49,6 @@ class SearchViewController: UIViewController {
         updateEmptyView()
     }
     
-    // MARK: 검색어 저장의 기준을 못찾아서 만듦,,🥲
-    @IBAction func searchButtonTapped(_ sender: UIButton) {
-        // MARK: 검색한 단어 -> 이전 검색 기록에 저장
-        if let searchText = searchBar.text, !searchText.isEmpty {
-            
-            var currentHistory = UserDefaultsManager.shared.searchHistory
-            
-            // MARK: 중복 검사 - 중복된 값이 없을 때만 추가
-            if !currentHistory.contains(searchText) {
-                currentHistory.append(searchText)
-                UserDefaultsManager.shared.searchHistory = currentHistory
-            }
-            
-            list = currentHistory
-            tableView.reloadData()
-            
-            view.endEditing(true)
-            
-            let viewController = storyboard?.instantiateViewController(identifier: SearchResultViewController.identifier) as! SearchResultViewController
-            viewController.searchKeyword = searchText
-            navigationController?.pushViewController(viewController, animated: true)
-        }
-    }
-    
     func updateEmptyView() {
         let isListEmpty = list.isEmpty
         let isSearchTextEmpty = searchBar.text?.isEmpty ?? true
@@ -136,6 +112,21 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier) as! TableViewCell
+
+        // MARK: xmark delete button 디자인 수정
+        let deleteButton : UIButton = {
+            let button = UIButton()
+            let imageConfig = UIImage.SymbolConfiguration(pointSize: 3, weight: .light)
+            let image = UIImage(systemName: "xmark", withConfiguration: imageConfig)
+            
+            button.setImage(image, for: .normal)
+            button.tintColor = .white
+            button.backgroundColor = .clear
+            
+            return button
+        }()
+        
+        cell.deleteButton = deleteButton
         
         cell.historyLabel.text = list[indexPath.row]
         cell.deleteButtonTappedHandler = { [weak self] in
@@ -145,16 +136,31 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let selectedKeyword = list[indexPath.row]
         searchBar.text = selectedKeyword
+        
+        var currentHistory = UserDefaultsManager.shared.searchHistory
+        
+        if currentHistory.contains(selectedKeyword) {
+            if let index = currentHistory.firstIndex(of: selectedKeyword) {
+                currentHistory.remove(at: index)
+            }
+        }
+        currentHistory.insert(selectedKeyword, at: 0)
+        UserDefaultsManager.shared.searchHistory = currentHistory
+        
+        list = currentHistory
         
         let viewController = storyboard?.instantiateViewController(identifier: SearchResultViewController.identifier) as! SearchResultViewController
         viewController.searchKeyword = searchBar.text ?? ""
         navigationController?.pushViewController(viewController, animated: true)
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44
+        
+        return UITableView.automaticDimension
     }
     
     func deleteSearchHistoryItem(at index: Int) {
@@ -169,12 +175,41 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: SearchBar
 extension SearchViewController: UISearchBarDelegate {
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
         if searchText.isEmpty {
             list = UserDefaultsManager.shared.searchHistory
         } else {
             list = UserDefaultsManager.shared.searchHistory.filter { $0.contains(searchText) }
         }
+        
         updateEmptyView()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        // MARK: 검색한 단어 -> 이전 검색 기록에 저장
+        if let searchText = searchBar.text, !searchText.isEmpty {
+            
+            var currentHistory = UserDefaultsManager.shared.searchHistory
+            
+            // MARK: 중복 검사 - 중복된 값이 없을 때만 추가
+            if currentHistory.contains(searchText) {
+                if let index = currentHistory.firstIndex(of: searchText) {
+                    currentHistory.remove(at: index)
+                }
+            }
+            currentHistory.insert(searchText, at: 0)
+            UserDefaultsManager.shared.searchHistory = currentHistory
+            
+            list = currentHistory
+            tableView.reloadData()
+            
+            view.endEditing(true)
+            
+            let viewController = storyboard?.instantiateViewController(identifier: SearchResultViewController.identifier) as! SearchResultViewController
+            viewController.searchKeyword = searchText
+            navigationController?.pushViewController(viewController, animated: true)
+        }
     }
 }
