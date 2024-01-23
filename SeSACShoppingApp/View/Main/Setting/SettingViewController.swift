@@ -114,6 +114,12 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             
             let okay = UIAlertAction(title: "확인", style: .default) { action in
                 UserDefaults.standard.setValue(false, forKey: "UserState")
+                
+                if let bundleID = Bundle.main.bundleIdentifier {
+                    UserDefaults.standard.removePersistentDomain(forName: bundleID)
+                    UserDefaults.standard.synchronize()
+                }
+                
                 let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
                 let sceneDelegate = windowScene?.delegate as? SceneDelegate
                 
