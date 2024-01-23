@@ -18,11 +18,6 @@ class SettingsProfileTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        userNameLabel.text = UserDefaults.standard.string(forKey: "userName") ?? "고객님"
-        
-//        let paddingView = UIView(frame: CGRect(x: 10, y: 0, width: contentView.frame.width - 20, height: contentView.frame.height))
-//        paddingView.backgroundColor = .clear
-//        contentView.addSubview(paddingView)
         
     }
 }

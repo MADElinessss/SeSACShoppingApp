@@ -47,7 +47,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zf0-Yp-ONU">
-                        <rect key="frame" x="147" y="118" width="32" height="32"/>
+                        <rect key="frame" x="151" y="118" width="32" height="32"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Zf0-Yp-ONU" secondAttribute="height" multiplier="1:1" id="6c6-VM-T35"/>
@@ -71,7 +71,7 @@
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Sgi-MJ-DwU" secondAttribute="trailing" constant="10" id="IWo-kz-3iL"/>
                 <constraint firstItem="Zf0-Yp-ONU" firstAttribute="bottom" secondItem="hDS-Ci-Dpe" secondAttribute="bottom" constant="-8" id="OuD-Wh-KMv"/>
                 <constraint firstItem="hDS-Ci-Dpe" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="Ruq-qf-szS"/>
-                <constraint firstAttribute="trailing" secondItem="Zf0-Yp-ONU" secondAttribute="trailing" constant="16" id="Ul0-Qr-WKn"/>
+                <constraint firstAttribute="trailing" secondItem="Zf0-Yp-ONU" secondAttribute="trailing" constant="12" id="Ul0-Qr-WKn"/>
                 <constraint firstItem="Sgi-MJ-DwU" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="dxT-l3-dSs"/>
                 <constraint firstItem="k0g-cZ-O12" firstAttribute="top" secondItem="hDS-Ci-Dpe" secondAttribute="bottom" constant="8" id="iyj-DC-teR"/>
                 <constraint firstItem="1GT-6X-BxA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="lZs-lb-2bZ"/>

@@ -15,6 +15,8 @@ class ProfileSettingViewController: UIViewController {
     @IBOutlet weak var warningLabel: UILabel!
     @IBOutlet weak var completeButton: UIButton!
     
+    var cameFromOnboarding: Bool = false
+    
     var savedProfileImage: String = UserDefaults.standard.string(forKey: "selectedImage") ?? "profile1" {
         didSet {
             profileButton.reloadInputViews()
@@ -72,7 +74,7 @@ class ProfileSettingViewController: UIViewController {
         
         warningLabel.text = "사용할 수 있는 닉네임이에요."
         completeButton.isEnabled = true
-        UserDefaults.standard.setValue(text, forKey: "userName")
+        
     }
     
     @IBAction func profileButtonTapped(_ sender: UIButton) {
@@ -83,13 +85,21 @@ class ProfileSettingViewController: UIViewController {
     
     @IBAction func completeButtonTapped(_ sender: UIButton) {
         
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "mainTabBarController") as! UITabBarController
-    
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
+        UserDefaults.standard.setValue(nicknameTextField.text, forKey: "userName")
+        UserDefaults.standard.setValue(savedProfileImage, forKey: "selectedImage")
+        
+        if cameFromOnboarding {
+            // 온보딩 뷰에서 왔을 경우
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "mainTabBarController") as! UITabBarController
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true)
+        } else {
+            // 설정 뷰에서 왔을 경우
+            navigationController?.popViewController(animated: true)
+        }
     }
-    
+
     func configureView() {
         
         title = "프로필 설정"

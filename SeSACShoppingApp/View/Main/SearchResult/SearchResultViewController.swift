@@ -149,13 +149,16 @@ extension SearchResultViewController: UICollectionViewDataSource, UICollectionVi
         
         // MARK: 좋아요 버튼 관련 로직
         let productId = self.items[indexPath.item].productID
-        var isLiked = UserDefaults.standard.bool(forKey: productId)
+        var isLiked = UserDefaultsManager.shared.likedProducts[productId] ?? false
         cell.likeButton.setImage(UIImage(systemName: isLiked ? "heart.fill" : "heart"), for: .normal)
-        
+                
         cell.likeButtonTapped = {
             isLiked.toggle()
-            UserDefaults.standard.setValue(isLiked, forKey: productId)
-            cell.likeButton.setImage(UIImage(systemName: isLiked ? "heart.fill" : "heart"), for: .normal)
+            var likedProducts = UserDefaultsManager.shared.likedProducts
+            likedProducts[productId] = !(likedProducts[productId] ?? false)
+            UserDefaultsManager.shared.likedProducts = likedProducts
+            let isLikedNow = likedProducts[productId] ?? false
+            cell.likeButton.setImage(UIImage(systemName: isLikedNow ? "heart.fill" : "heart"), for: .normal)
         }
         
         return cell

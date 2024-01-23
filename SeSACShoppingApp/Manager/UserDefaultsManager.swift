@@ -7,6 +7,11 @@
 
 import Foundation
 
+struct LikedItem {
+    let productId: String
+    var isLiked: Bool
+}
+
 class UserDefaultsManager {
     
     private init() { }
@@ -25,6 +30,15 @@ class UserDefaultsManager {
         }
         set {
             ud.set(newValue, forKey: "searchHistory")
+        }
+    }
+    
+    var likedProducts: [String: Bool] {
+        get {
+            return ud.dictionary(forKey: "likedProducts") as? [String: Bool] ?? [:]
+        }
+        set {
+            ud.set(newValue, forKey: "likedProducts")
         }
     }
 }

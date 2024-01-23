@@ -30,7 +30,7 @@ class ItemDetailViewController: UIViewController {
     }
     
     func configureView() {
-        let isLiked = UserDefaults.standard.bool(forKey: productId)
+        let isLiked = UserDefaultsManager.shared.likedProducts[productId] ?? false
         let button = UIBarButtonItem(image: UIImage(systemName: isLiked ? "heart.fill" : "heart"), style: .plain, target: self, action: #selector(heartButtonTapped))
         
         navigationItem.titleView = UILabel.customNavigationTitle(selectedItem)
@@ -40,10 +40,15 @@ class ItemDetailViewController: UIViewController {
     
     // MARK: 🆘 SOS - 상세 페이지에 있는 좋아요 버튼 로직..뭔가 엄청 비효율적인 것 같아요..😭
     @objc func heartButtonTapped() {
-        var isLiked = UserDefaults.standard.bool(forKey: productId)
-        isLiked.toggle()
-        let button = UIBarButtonItem(image: UIImage(systemName: isLiked ? "heart.fill" : "heart"), style: .plain, target: self, action: #selector(heartButtonTapped))
-        navigationItem.rightBarButtonItem = button
-        UserDefaults.standard.setValue(isLiked, forKey: productId)
+        var likedProducts = UserDefaultsManager.shared.likedProducts
+        let isLiked = !(likedProducts[productId] ?? false)
+        likedProducts[productId] = isLiked
+        UserDefaultsManager.shared.likedProducts = likedProducts
+        configureView()
+//        var isLiked = UserDefaults.standard.bool(forKey: productId)
+//        isLiked.toggle()
+//        let button = UIBarButtonItem(image: UIImage(systemName: isLiked ? "heart.fill" : "heart"), style: .plain, target: self, action: #selector(heartButtonTapped))
+//        navigationItem.rightBarButtonItem = button
+//        UserDefaults.standard.setValue(isLiked, forKey: productId)
     }
 }
