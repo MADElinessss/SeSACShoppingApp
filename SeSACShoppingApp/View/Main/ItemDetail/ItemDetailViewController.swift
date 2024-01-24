@@ -45,10 +45,5 @@ class ItemDetailViewController: UIViewController {
         likedProducts[productId] = isLiked
         UserDefaultsManager.shared.likedProducts = likedProducts
         configureView()
-//        var isLiked = UserDefaults.standard.bool(forKey: productId)
-//        isLiked.toggle()
-//        let button = UIBarButtonItem(image: UIImage(systemName: isLiked ? "heart.fill" : "heart"), style: .plain, target: self, action: #selector(heartButtonTapped))
-//        navigationItem.rightBarButtonItem = button
-//        UserDefaults.standard.setValue(isLiked, forKey: productId)
     }
 }

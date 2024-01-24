@@ -20,9 +20,8 @@ struct APIManager {
         AF.request(url, method: .get, headers: headers).responseDecodable(of: Search.self) { response in
             switch response.result {
             case .success(let success):
-//                print(success)
                 completionHandler(success)
-            case .failure(let failure):
+            case .failure(_):
                 completionHandler(Search(lastBuildDate: nil, total: nil, start: nil, display: nil, items: []))
             }
         }

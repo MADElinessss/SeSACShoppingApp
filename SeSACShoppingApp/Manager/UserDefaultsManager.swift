@@ -7,9 +7,12 @@
 
 import Foundation
 
-struct LikedItem {
-    let productId: String
-    var isLiked: Bool
+enum UserDefaultsKey: String {
+    case searchHistory
+    case likedProducts
+    case UserState
+    case selectedImage
+    case userName
 }
 
 class UserDefaultsManager {
@@ -18,27 +21,50 @@ class UserDefaultsManager {
     
     static let shared = UserDefaultsManager()
     
-    enum UserDefaultsKey: String {
-        case searchHistory
-    }
-    
     let ud = UserDefaults.standard
     
     var searchHistory: [String] {
         get {
-            ud.array(forKey: "searchHistory") as? [String] ?? []
+            ud.array(forKey: UserDefaultsKey.searchHistory.rawValue) as? [String] ?? []
         }
         set {
-            ud.set(newValue, forKey: "searchHistory")
+            ud.set(newValue, forKey: UserDefaultsKey.searchHistory.rawValue)
         }
     }
     
     var likedProducts: [String: Bool] {
         get {
-            return ud.dictionary(forKey: "likedProducts") as? [String: Bool] ?? [:]
+            return ud.dictionary(forKey: UserDefaultsKey.likedProducts.rawValue) as? [String: Bool] ?? [:]
         }
         set {
-            ud.set(newValue, forKey: "likedProducts")
+            ud.set(newValue, forKey: UserDefaultsKey.likedProducts.rawValue)
+        }
+    }
+    
+    var userState: Bool {
+        get {
+            ud.bool(forKey: UserDefaultsKey.UserState.rawValue)
+        }
+        set {
+            ud.set(newValue, forKey: UserDefaultsKey.UserState.rawValue)
+        }
+    }
+    
+    var selectedImage: String {
+        get {
+            ud.string(forKey: UserDefaultsKey.selectedImage.rawValue) ?? "profile1"
+        }
+        set {
+            ud.set(newValue, forKey: UserDefaultsKey.selectedImage.rawValue)
+        }
+    }
+    
+    var userName: String {
+        get {
+            ud.string(forKey: UserDefaultsKey.userName.rawValue) ?? "고객님"
+        }
+        set {
+            ud.set(newValue, forKey: UserDefaultsKey.userName.rawValue)
         }
     }
 }

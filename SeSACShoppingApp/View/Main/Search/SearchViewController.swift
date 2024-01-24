@@ -18,7 +18,7 @@ class SearchViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var userName = UserDefaults.standard.string(forKey: "userName") ?? "고객"
+    var userName = UserDefaultsManager.shared.userName
     
     var list: [String] = [] {
         didSet {

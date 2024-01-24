@@ -19,7 +19,7 @@ class OnboardingViewController: UIViewController {
         configureView()
         setBackGroundColor()
         
-        UserDefaults.standard.set(true, forKey: "UserState")
+        UserDefaultsManager.shared.userState = true
     }
     
     @IBAction func startButtonTapped(_ sender: UIButton) {

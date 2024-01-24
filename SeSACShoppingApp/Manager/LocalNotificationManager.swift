@@ -12,12 +12,10 @@ struct LocalNotificationManager {
     func setNotification() {
         // MARK: Notification 1. Content
         let content = UNMutableNotificationContent()
-        let title = "장바구니 확인해보셨나요?"
         let body = "찜한 상품을 구매해보세여!"
         
         // MARK: Notification 2. Trigger
         // 📅 Calendar Trigger
-        let calendar = Calendar.current
         let currentDate = Date()
         
         var component = DateComponents()

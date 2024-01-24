@@ -11,7 +11,7 @@ class SettingViewController: UIViewController {
     
     @IBOutlet weak var settingtableView: UITableView!
     
-    var selectedImage = UserDefaults.standard.string(forKey: "selectedImage") ?? "profile1" {
+    var selectedImage = UserDefaultsManager.shared.selectedImage {
         didSet {
             settingtableView.reloadData()
         }
@@ -73,14 +73,14 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         case .profile:
             let cell = settingtableView.dequeueReusableCell(withIdentifier: "SettingsProfileTableViewCell", for: indexPath) as! SettingsProfileTableViewCell
             
-            let image = UserDefaults.standard.string(forKey: "selectedImage") ?? "profile1"
+            let image = UserDefaultsManager.shared.selectedImage
             cell.profileImageView.image = UIImage(named: "\(image)")
             cell.profileImageView.clipsToBounds = true
             cell.profileImageView.layer.cornerRadius = 25
             cell.profileImageView.layer.borderColor = UIColor(named: "point")?.cgColor
             cell.profileImageView.layer.borderWidth = 4
             
-            cell.userNameLabel.text = UserDefaults.standard.string(forKey: "userName")
+            cell.userNameLabel.text = UserDefaultsManager.shared.userName
             
             let totalLikedProducts = UserDefaultsManager.shared.likedProducts.values.filter { $0 }.count
             cell.itemCountLabel.text = "\(totalLikedProducts)개의 상품"
@@ -113,7 +113,6 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             let alert = UIAlertController(title: "처음부터 시작하기", message: "데이터를 모두 초기화하시겠습니까?🥹", preferredStyle: .alert)
             
             let okay = UIAlertAction(title: "확인", style: .default) { action in
-                UserDefaults.standard.setValue(false, forKey: "UserState")
                 
                 if let bundleID = Bundle.main.bundleIdentifier {
                     UserDefaults.standard.removePersistentDomain(forName: bundleID)

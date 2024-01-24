@@ -16,7 +16,7 @@ class ProfileImageSelectViewController: UIViewController {
     
     var selectedImage: String = "profile1"
     
-    var savedProfileImage: String = UserDefaults.standard.string(forKey: "selectedImage") ?? "profile1" {
+    var savedProfileImage: String = UserDefaultsManager.shared.selectedImage {
         didSet {
             profileImageView.reloadInputViews()
         }
@@ -33,7 +33,7 @@ class ProfileImageSelectViewController: UIViewController {
     }
     
     @IBAction func completeButtonTapped(_ sender: UIButton) {
-        UserDefaults.standard.setValue(selectedImage, forKey: "selectedImage")
+        UserDefaultsManager.shared.selectedImage = selectedImage
         navigationController?.popViewController(animated: true)
     }
     

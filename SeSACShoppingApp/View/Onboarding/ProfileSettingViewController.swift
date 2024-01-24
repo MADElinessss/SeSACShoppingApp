@@ -17,7 +17,7 @@ class ProfileSettingViewController: UIViewController {
     
     var cameFromOnboarding: Bool = false
     
-    var savedProfileImage: String = UserDefaults.standard.string(forKey: "selectedImage") ?? "profile1" {
+    var savedProfileImage: String = UserDefaultsManager.shared.selectedImage {
         didSet {
             profileButton.reloadInputViews()
         }
@@ -26,7 +26,7 @@ class ProfileSettingViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        savedProfileImage = UserDefaults.standard.string(forKey: "selectedImage") ?? "profile1"
+        savedProfileImage = UserDefaultsManager.shared.selectedImage
 
         profileButton.setImage(UIImage(named: savedProfileImage), for: .normal)
 
@@ -85,8 +85,8 @@ class ProfileSettingViewController: UIViewController {
     
     @IBAction func completeButtonTapped(_ sender: UIButton) {
         
-        UserDefaults.standard.setValue(nicknameTextField.text, forKey: "userName")
-        UserDefaults.standard.setValue(savedProfileImage, forKey: "selectedImage")
+        UserDefaultsManager.shared.userName = nicknameTextField.text ?? "고객님"
+        UserDefaultsManager.shared.selectedImage = savedProfileImage
         
         if cameFromOnboarding {
             // 온보딩 뷰에서 왔을 경우
@@ -111,7 +111,7 @@ class ProfileSettingViewController: UIViewController {
         bottomLine.backgroundColor = UIColor.white.cgColor
         nicknameTextField.borderStyle = .none
         nicknameTextField.layer.addSublayer(bottomLine)
-        nicknameTextField.text = UserDefaults.standard.string(forKey: "userName") ?? ""
+        nicknameTextField.text = UserDefaultsManager.shared.userName
         
         profileButton.setImage(UIImage(named: savedProfileImage), for: .normal)
         profileButton.clipsToBounds = true

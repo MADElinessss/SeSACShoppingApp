@@ -24,10 +24,6 @@
 		C1381B6C2B5BF412001A5285 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1381B6B2B5BF412001A5285 /* Settings.swift */; };
 		C1381B752B5E47ED001A5285 /* SSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1381B742B5E47ED001A5285 /* SSButton.swift */; };
 		C1381B772B5E4E5A001A5285 /* SSNavigationTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1381B762B5E4E5A001A5285 /* SSNavigationTitle.swift */; };
-		C1381B7B2B5E794B001A5285 /* LikedItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1381B792B5E794B001A5285 /* LikedItemsTableViewCell.swift */; };
-		C1381B7C2B5E794B001A5285 /* LikedItemsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1381B7A2B5E794B001A5285 /* LikedItemsTableViewCell.xib */; };
-		C1381B832B5E7B06001A5285 /* RecommendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1381B812B5E7B06001A5285 /* RecommendCollectionViewCell.swift */; };
-		C1381B842B5E7B06001A5285 /* RecommendCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1381B822B5E7B06001A5285 /* RecommendCollectionViewCell.xib */; };
 		C1381B932B5F7F2C001A5285 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1381B922B5F7F2C001A5285 /* Constants.swift */; };
 		C1381BB82B5FFB6A001A5285 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1381BB72B5FFB6A001A5285 /* LocalNotificationManager.swift */; };
 		C148B88E2B5904F400795223 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C148B88D2B5904F400795223 /* AppDelegate.swift */; };
@@ -44,7 +40,6 @@
 		C148B8AE2B59195800795223 /* ProfileImageSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C148B8AD2B59195800795223 /* ProfileImageSelectViewController.swift */; };
 		C148B8B32B59228800795223 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C148B8B12B59228800795223 /* ProfileCollectionViewCell.swift */; };
 		C148B8B42B59228800795223 /* ProfileCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C148B8B22B59228800795223 /* ProfileCollectionViewCell.xib */; };
-		C148B8B62B5937C400795223 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C148B8B52B5937C400795223 /* MainViewController.swift */; };
 		C148B8B92B5938D900795223 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C148B8B82B5938D900795223 /* SearchViewController.swift */; };
 		C148B8BB2B59391300795223 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C148B8BA2B59391300795223 /* SettingViewController.swift */; };
 		C148B8BF2B59474B00795223 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C148B8BD2B59474B00795223 /* TableViewCell.swift */; };
@@ -67,10 +62,6 @@
 		C1381B6B2B5BF412001A5285 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		C1381B742B5E47ED001A5285 /* SSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSButton.swift; sourceTree = "<group>"; };
 		C1381B762B5E4E5A001A5285 /* SSNavigationTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSNavigationTitle.swift; sourceTree = "<group>"; };
-		C1381B792B5E794B001A5285 /* LikedItemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedItemsTableViewCell.swift; sourceTree = "<group>"; };
-		C1381B7A2B5E794B001A5285 /* LikedItemsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LikedItemsTableViewCell.xib; sourceTree = "<group>"; };
-		C1381B812B5E7B06001A5285 /* RecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCollectionViewCell.swift; sourceTree = "<group>"; };
-		C1381B822B5E7B06001A5285 /* RecommendCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendCollectionViewCell.xib; sourceTree = "<group>"; };
 		C1381B922B5F7F2C001A5285 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C1381BB72B5FFB6A001A5285 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		C148B88A2B5904F400795223 /* SeSACShoppingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACShoppingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,7 +80,6 @@
 		C148B8AD2B59195800795223 /* ProfileImageSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageSelectViewController.swift; sourceTree = "<group>"; };
 		C148B8B12B59228800795223 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		C148B8B22B59228800795223 /* ProfileCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCollectionViewCell.xib; sourceTree = "<group>"; };
-		C148B8B52B5937C400795223 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C148B8B82B5938D900795223 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		C148B8BA2B59391300795223 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		C148B8BD2B59474B00795223 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
@@ -179,18 +169,6 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
-		C1381B782B5E784F001A5285 /* ShoppingList */ = {
-			isa = PBXGroup;
-			children = (
-				C148B8B52B5937C400795223 /* MainViewController.swift */,
-				C1381B792B5E794B001A5285 /* LikedItemsTableViewCell.swift */,
-				C1381B7A2B5E794B001A5285 /* LikedItemsTableViewCell.xib */,
-				C1381B812B5E7B06001A5285 /* RecommendCollectionViewCell.swift */,
-				C1381B822B5E7B06001A5285 /* RecommendCollectionViewCell.xib */,
-			);
-			path = ShoppingList;
-			sourceTree = "<group>";
-		};
 		C148B8812B5904F400795223 = {
 			isa = PBXGroup;
 			children = (
@@ -250,7 +228,6 @@
 		C148B8B72B59389E00795223 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				C1381B782B5E784F001A5285 /* ShoppingList */,
 				C1381B622B5BF1DE001A5285 /* Setting */,
 				C1381B5C2B5BD695001A5285 /* ItemDetail */,
 				C1381B462B5A8B4E001A5285 /* SearchResult */,
@@ -336,11 +313,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C148B8A22B59050400795223 /* .gitignore in Resources */,
-				C1381B842B5E7B06001A5285 /* RecommendCollectionViewCell.xib in Resources */,
 				C148B8C02B59474B00795223 /* TableViewCell.xib in Resources */,
 				C148B89A2B5904F500795223 /* LaunchScreen.storyboard in Resources */,
 				C1381B662B5BF1F2001A5285 /* SettingsTableViewCell.xib in Resources */,
-				C1381B7C2B5E794B001A5285 /* LikedItemsTableViewCell.xib in Resources */,
 				C148B8972B5904F500795223 /* Assets.xcassets in Resources */,
 				C1381B4C2B5A8B62001A5285 /* SearchResultCollectionViewCell.xib in Resources */,
 				C1381B6A2B5BF205001A5285 /* SettingsProfileTableViewCell.xib in Resources */,
@@ -359,7 +334,6 @@
 			files = (
 				C1381B512B5A99C1001A5285 /* APIManager.swift in Sources */,
 				C148B8BF2B59474B00795223 /* TableViewCell.swift in Sources */,
-				C1381B7B2B5E794B001A5285 /* LikedItemsTableViewCell.swift in Sources */,
 				C1381B592B5A9A4A001A5285 /* UserDefaultsManager.swift in Sources */,
 				C148B8AA2B590BB900795223 /* UIViewController+Extension.swift in Sources */,
 				C148B8B92B5938D900795223 /* SearchViewController.swift in Sources */,
@@ -375,12 +349,10 @@
 				C148B8A42B59051A00795223 /* APIKey.swift in Sources */,
 				C148B8902B5904F400795223 /* SceneDelegate.swift in Sources */,
 				C1381B5E2B5BD6B0001A5285 /* ItemDetailViewController.swift in Sources */,
-				C1381B832B5E7B06001A5285 /* RecommendCollectionViewCell.swift in Sources */,
 				C148B8AC2B590E1500795223 /* ProfileSettingViewController.swift in Sources */,
 				C1381B752B5E47ED001A5285 /* SSButton.swift in Sources */,
 				C1381B772B5E4E5A001A5285 /* SSNavigationTitle.swift in Sources */,
 				C1381B692B5BF205001A5285 /* SettingsProfileTableViewCell.swift in Sources */,
-				C148B8B62B5937C400795223 /* MainViewController.swift in Sources */,
 				C1381B652B5BF1F2001A5285 /* SettingsTableViewCell.swift in Sources */,
 				C1381B6C2B5BF412001A5285 /* Settings.swift in Sources */,
 				C148B8BB2B59391300795223 /* SettingViewController.swift in Sources */,
