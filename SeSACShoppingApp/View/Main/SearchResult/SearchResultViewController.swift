@@ -22,14 +22,11 @@ class SearchResultViewController: UIViewController {
     let manager = APIManager()
     
     var items: [Item] = []
-    
     var searchResult: Search?
-    
     var searchKeyword: String = ""
     var sorting: String = "sim"
     
     var page = 1
-    
     var isLastPage = false
     
     override func viewWillAppear(_ animated: Bool) {
@@ -133,6 +130,7 @@ class SearchResultViewController: UIViewController {
     }
 }
 
+// MARK: collectionview 관련
 extension SearchResultViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -175,17 +173,10 @@ extension SearchResultViewController: UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let flowLayout = UICollectionViewFlowLayout()
-        let leftRightInset: CGFloat = 16
-        let topBottomInset: CGFloat = 16
-        let inter: CGFloat = 8
-        
-        let column: CGFloat = 2
-//        let width: CGFloat = (UIScreen.main.bounds.width - (2 * leftRightInset) - inter) / column
+
         let width: CGFloat = UIScreen.main.bounds.width * 0.4
         let height: CGFloat = width * 1.6
         
-//        flowLayout.sectionInset = .init(top: 10, left: 16, bottom: 10, right: 16)
         return CGSize(width: width, height: height)
     }
 

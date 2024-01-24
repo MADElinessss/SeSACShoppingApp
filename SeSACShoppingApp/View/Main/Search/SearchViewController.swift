@@ -42,7 +42,7 @@ class SearchViewController: UIViewController {
         configureTableView()
     }
     
-    // TODO: 검색 기록 모두 삭제 버튼임
+    // TODO: 검색 기록 모두 삭제 버튼
     @IBAction func eraseAllButtonTapped(_ sender: UIButton) {
         UserDefaultsManager.shared.searchHistory = []
         list = []
@@ -103,7 +103,7 @@ class SearchViewController: UIViewController {
     }
 }
 
-// MARK: TableView
+// MARK: TableView 관련
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -173,7 +173,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-// MARK: SearchBar
+// MARK: SearchBar 관련
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

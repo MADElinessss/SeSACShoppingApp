@@ -38,7 +38,6 @@ class ItemDetailViewController: UIViewController {
         
     }
     
-    // MARK: 🆘 SOS - 상세 페이지에 있는 좋아요 버튼 로직..뭔가 엄청 비효율적인 것 같아요..😭
     @objc func heartButtonTapped() {
         var likedProducts = UserDefaultsManager.shared.likedProducts
         let isLiked = !(likedProducts[productId] ?? false)
