@@ -218,6 +218,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GDU-4C-pKA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="RPR-o7-suN" firstAttribute="leading" secondItem="GDU-4C-pKA" secondAttribute="leading" constant="20" id="2wf-2I-hs4"/>
                             <constraint firstItem="fpB-jY-YUd" firstAttribute="trailing" secondItem="Uci-DL-sAL" secondAttribute="trailing" id="3Po-m8-6Ay"/>
@@ -233,16 +234,25 @@
                             <constraint firstItem="Uci-DL-sAL" firstAttribute="top" secondItem="GDU-4C-pKA" secondAttribute="top" constant="24" id="kkt-XM-wgx"/>
                             <constraint firstItem="YjZ-AO-gY4" firstAttribute="leading" secondItem="GDU-4C-pKA" secondAttribute="leading" constant="20" id="mha-UY-ndS"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="wHH-WZ-U1C" appends="YES" id="ppy-EF-o0Q"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="프로필 설정" id="sUJ-Na-ozW"/>
                     <connections>
                         <outlet property="completeButton" destination="0lB-Va-tbH" id="wbA-SA-UHB"/>
                         <outlet property="nicknameTextField" destination="YjZ-AO-gY4" id="t7n-tW-KfG"/>
                         <outlet property="profileButton" destination="Uci-DL-sAL" id="Uov-hV-SeV"/>
+                        <outlet property="tapGestureRecognizerTapped" destination="wHH-WZ-U1C" id="JKE-MT-x2g"/>
                         <outlet property="warningLabel" destination="RPR-o7-suN" id="4PM-m1-sQ5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1w9-6k-d8z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="wHH-WZ-U1C">
+                    <connections>
+                        <action selector="tapGestureRecognizerTapped:" destination="ja4-Ym-tkf" id="SiH-le-GqG"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="4515.2671755725187" y="-2.1126760563380285"/>
         </scene>

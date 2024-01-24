@@ -14,6 +14,7 @@ class ProfileSettingViewController: UIViewController {
     @IBOutlet weak var nicknameTextField: UITextField!
     @IBOutlet weak var warningLabel: UILabel!
     @IBOutlet weak var completeButton: UIButton!
+    @IBOutlet var tapGestureRecognizerTapped: UITapGestureRecognizer!
     
     var cameFromOnboarding: Bool = false
     
@@ -77,6 +78,10 @@ class ProfileSettingViewController: UIViewController {
         
     }
     
+    @IBAction func tapGestureRecognizerTapped(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
     @IBAction func profileButtonTapped(_ sender: UIButton) {
         let viewController = storyboard?.instantiateViewController(withIdentifier: ProfileImageSelectViewController.identifier) as! ProfileImageSelectViewController
         
@@ -111,8 +116,10 @@ class ProfileSettingViewController: UIViewController {
         bottomLine.backgroundColor = UIColor.white.cgColor
         nicknameTextField.borderStyle = .none
         nicknameTextField.layer.addSublayer(bottomLine)
-        nicknameTextField.text = UserDefaultsManager.shared.userName
-        
+        if UserDefaultsManager.shared.userName != "고객" {
+            nicknameTextField.text = UserDefaultsManager.shared.userName
+        }
+    
         profileButton.setImage(UIImage(named: savedProfileImage), for: .normal)
         profileButton.clipsToBounds = true
         profileButton.layer.cornerRadius = 65

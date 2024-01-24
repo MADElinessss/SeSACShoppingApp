@@ -8,31 +8,37 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var eraseAllButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var emptyView: UIView!
     @IBOutlet weak var emptyImageView: UIImageView!
     @IBOutlet weak var emptyLabel: UILabel!
-    
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer!
     
-    var userName = UserDefaultsManager.shared.userName
+    var userName = UserDefaultsManager.shared.userName {
+        didSet {
+            navigationItem.titleView?.reloadInputViews()
+        }
+    }
     
     var list: [String] = [] {
         didSet {
             tableView.reloadData()
         }
     }
-    var originalList: [String] = []
     
-    var itemList: [Item] = []
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        updateUserName()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.titleView = UILabel.customNavigationTitle("\(userName)님의 새싹쇼핑")
         list = UserDefaultsManager.shared.searchHistory
         
         updateEmptyView()
@@ -40,6 +46,14 @@ class SearchViewController: UIViewController {
         configureView()
         configureEmptyView()
         configureTableView()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     // TODO: 검색 기록 모두 삭제 버튼
@@ -49,10 +63,23 @@ class SearchViewController: UIViewController {
         updateEmptyView()
     }
     
+    @IBAction func tapGestureRecognizerTapped(_ sender: UITapGestureRecognizer) {
+        let location = sender.location(in: tableView)
+        if tableView.indexPathForRow(at: location) == nil {
+            // 테이블뷰의 빈 부분이 탭되었을 때
+            view.endEditing(true)
+        }
+    }
+    
+    func updateUserName() {
+        userName = UserDefaultsManager.shared.userName
+        navigationItem.titleView = UILabel.customNavigationTitle("\(userName)님의 새싹쇼핑")
+    }
+    
     func updateEmptyView() {
         let isListEmpty = list.isEmpty
         let isSearchTextEmpty = searchBar.text?.isEmpty ?? true
-
+        
         if isListEmpty && isSearchTextEmpty {
             // 검색 기록이 비어있고, 검색어도 입력되지 않았을 때
             emptyView.isHidden = false
@@ -67,7 +94,7 @@ class SearchViewController: UIViewController {
             titleLabel.isHidden = false
         }
     }
-
+    
     func configureEmptyView() {
         emptyView.backgroundColor = .black
         emptyLabel.textColor = .white
@@ -76,7 +103,7 @@ class SearchViewController: UIViewController {
     }
     
     func configureView() {
-
+        
         self.navigationItem.hidesBackButton = true
         
         searchBar.barTintColor = .black
@@ -105,14 +132,14 @@ class SearchViewController: UIViewController {
 
 // MARK: TableView 관련
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return list.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier) as! TableViewCell
-
+        
         // MARK: xmark delete button 디자인 수정
         let deleteButton : UIButton = {
             let button = UIButton()

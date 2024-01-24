@@ -61,7 +61,7 @@ class UserDefaultsManager {
     
     var userName: String {
         get {
-            ud.string(forKey: UserDefaultsKey.userName.rawValue) ?? "고객님"
+            ud.string(forKey: UserDefaultsKey.userName.rawValue) ?? "고객"
         }
         set {
             ud.set(newValue, forKey: UserDefaultsKey.userName.rawValue)

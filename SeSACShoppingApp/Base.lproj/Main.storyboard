@@ -145,6 +145,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EQe-7B-B9D"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="KHU-dT-Qr3" firstAttribute="top" secondItem="ZiV-b1-SVq" secondAttribute="bottom" constant="4" id="1Mv-ig-b45"/>
                             <constraint firstItem="KHU-dT-Qr3" firstAttribute="top" secondItem="C8Y-PO-UXV" secondAttribute="bottom" constant="44" id="5w7-ri-c4h"/>
@@ -162,6 +163,9 @@
                             <constraint firstItem="KHU-dT-Qr3" firstAttribute="top" secondItem="HYs-ll-Eid" secondAttribute="bottom" constant="12" id="kcR-Hq-bxu"/>
                             <constraint firstItem="BQs-Bu-yau" firstAttribute="centerY" secondItem="HoZ-cd-10n" secondAttribute="centerY" id="urd-bv-Pvc"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="gCw-Ey-P8t" appends="YES" id="aAM-ux-M4J"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="D2Z-6x-Bcm"/>
                     <connections>
@@ -171,10 +175,16 @@
                         <outlet property="eraseAllButton" destination="ZiV-b1-SVq" id="kby-F5-IRL"/>
                         <outlet property="searchBar" destination="C8Y-PO-UXV" id="5NM-Lk-pXM"/>
                         <outlet property="tableView" destination="KHU-dT-Qr3" id="Md9-O0-CNI"/>
+                        <outlet property="tapGestureRecognizer" destination="gCw-Ey-P8t" id="ses-jc-vd2"/>
                         <outlet property="titleLabel" destination="HYs-ll-Eid" id="QOj-7V-13s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="izT-hs-Ofw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="gCw-Ey-P8t">
+                    <connections>
+                        <action selector="tapGestureRecognizerTapped:" destination="HTc-Ib-tKV" id="TEi-fO-FBC"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="8005.3435114503809" y="372.53521126760563"/>
         </scene>
