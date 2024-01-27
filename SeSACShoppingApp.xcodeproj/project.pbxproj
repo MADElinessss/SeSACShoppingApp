@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C12C35C22B65095B0065AB2B /* CodeBasedSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12C35C12B65095B0065AB2B /* CodeBasedSearchViewController.swift */; };
+		C12C35C52B6509E40065AB2B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C12C35C42B6509E40065AB2B /* SnapKit */; };
+		C12C35C72B6509E40065AB2B /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = C12C35C62B6509E40065AB2B /* SnapKit-Dynamic */; };
+		C12C35C92B650D5C0065AB2B /* CodeBasedSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12C35C82B650D5C0065AB2B /* CodeBasedSearchTableViewCell.swift */; };
 		C1381B482B5A8B58001A5285 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1381B472B5A8B58001A5285 /* SearchResultViewController.swift */; };
 		C1381B4B2B5A8B62001A5285 /* SearchResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1381B492B5A8B62001A5285 /* SearchResultCollectionViewCell.swift */; };
 		C1381B4C2B5A8B62001A5285 /* SearchResultCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1381B4A2B5A8B62001A5285 /* SearchResultCollectionViewCell.xib */; };
@@ -45,6 +49,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C12C35C12B65095B0065AB2B /* CodeBasedSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBasedSearchViewController.swift; sourceTree = "<group>"; };
+		C12C35C82B650D5C0065AB2B /* CodeBasedSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBasedSearchTableViewCell.swift; sourceTree = "<group>"; };
 		C1381B472B5A8B58001A5285 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		C1381B492B5A8B62001A5285 /* SearchResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCollectionViewCell.swift; sourceTree = "<group>"; };
 		C1381B4A2B5A8B62001A5285 /* SearchResultCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -87,8 +93,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C12C35C52B6509E40065AB2B /* SnapKit in Frameworks */,
 				C1381B572B5A99E0001A5285 /* Kingfisher in Frameworks */,
 				C1381B542B5A99D2001A5285 /* Alamofire in Frameworks */,
+				C12C35C72B6509E40065AB2B /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +109,8 @@
 				C1381B472B5A8B58001A5285 /* SearchResultViewController.swift */,
 				C1381B492B5A8B62001A5285 /* SearchResultCollectionViewCell.swift */,
 				C1381B4A2B5A8B62001A5285 /* SearchResultCollectionViewCell.xib */,
+				C12C35C12B65095B0065AB2B /* CodeBasedSearchViewController.swift */,
+				C12C35C82B650D5C0065AB2B /* CodeBasedSearchTableViewCell.swift */,
 			);
 			path = SearchResult;
 			sourceTree = "<group>";
@@ -259,6 +269,8 @@
 			packageProductDependencies = (
 				C1381B532B5A99D2001A5285 /* Alamofire */,
 				C1381B562B5A99E0001A5285 /* Kingfisher */,
+				C12C35C42B6509E40065AB2B /* SnapKit */,
+				C12C35C62B6509E40065AB2B /* SnapKit-Dynamic */,
 			);
 			productName = SeSACShoppingApp;
 			productReference = C148B88A2B5904F400795223 /* SeSACShoppingApp.app */;
@@ -291,6 +303,7 @@
 			packageReferences = (
 				C1381B522B5A99D2001A5285 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				C1381B552B5A99E0001A5285 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				C12C35C32B6509E40065AB2B /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = C148B88B2B5904F400795223 /* Products */;
 			projectDirPath = "";
@@ -331,6 +344,7 @@
 				C1381B592B5A9A4A001A5285 /* UserDefaultsManager.swift in Sources */,
 				C148B8AA2B590BB900795223 /* UIViewController+Extension.swift in Sources */,
 				C148B8B92B5938D900795223 /* SearchViewController.swift in Sources */,
+				C12C35C22B65095B0065AB2B /* CodeBasedSearchViewController.swift in Sources */,
 				C1381B5B2B5A9CF6001A5285 /* Search.swift in Sources */,
 				C1381B4B2B5A8B62001A5285 /* SearchResultCollectionViewCell.swift in Sources */,
 				C148B88E2B5904F400795223 /* AppDelegate.swift in Sources */,
@@ -344,6 +358,7 @@
 				C1381B5E2B5BD6B0001A5285 /* ItemDetailViewController.swift in Sources */,
 				C148B8AC2B590E1500795223 /* ProfileSettingViewController.swift in Sources */,
 				C1381B752B5E47ED001A5285 /* SSButton.swift in Sources */,
+				C12C35C92B650D5C0065AB2B /* CodeBasedSearchTableViewCell.swift in Sources */,
 				C1381B772B5E4E5A001A5285 /* SSNavigationTitle.swift in Sources */,
 				C1381B692B5BF205001A5285 /* SettingsProfileTableViewCell.swift in Sources */,
 				C1381B652B5BF1F2001A5285 /* SettingsTableViewCell.swift in Sources */,
@@ -424,7 +439,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -478,7 +493,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -504,7 +519,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -537,7 +552,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -578,6 +593,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C12C35C32B6509E40065AB2B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.0;
+			};
+		};
 		C1381B522B5A99D2001A5285 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -597,6 +620,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C12C35C42B6509E40065AB2B /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C12C35C32B6509E40065AB2B /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		C12C35C62B6509E40065AB2B /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C12C35C32B6509E40065AB2B /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
+		};
 		C1381B532B5A99D2001A5285 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C1381B522B5A99D2001A5285 /* XCRemoteSwiftPackageReference "Alamofire" */;
