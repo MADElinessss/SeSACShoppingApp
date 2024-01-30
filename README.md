@@ -14,7 +14,8 @@
 </td>
 <td>
     
-![image](https://github.com/MADElinessss/SeSACShoppingApp/assets/88757043/b3a656bb-c0f7-4875-9223-ec37f8df08a1)
+![image](https://github.com/MADElinessss/SeSACShoppingApp/assets/88757043/5c382c01-6273-435a-9f09-7559932b19e0)
+
 
 </td>
 <td>
@@ -30,12 +31,7 @@
 <table>
 <tr>
 <td>
-    
 
-![image](https://github.com/MADElinessss/SeSACShoppingApp/assets/88757043/5c382c01-6273-435a-9f09-7559932b19e0)
-
-</td>
-<td>
 
 ![image](https://github.com/MADElinessss/SeSACShoppingApp/assets/88757043/2325ade9-9bf7-4b0e-be5b-2c0a3d1e6649)
 
@@ -44,6 +40,13 @@
 <td>
 
 ![image](https://github.com/MADElinessss/SeSACShoppingApp/assets/88757043/f7aa07e5-81d1-458f-92f2-664541580afc)
+
+
+</td>
+<td>
+
+![image](https://github.com/MADElinessss/SeSACShoppingApp/assets/88757043/b3a656bb-c0f7-4875-9223-ec37f8df08a1)
+
 
 </td>
 <td>
