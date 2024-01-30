@@ -4,6 +4,11 @@
 <tr>
 <td>
 
+![image](https://github.com/MADElinessss/SeSACShoppingApp/assets/88757043/92e6d43b-e955-45e4-864b-4e9f76dc694a)
+
+</td>
+<td>
+    
 ![image](https://github.com/MADElinessss/SeSACShoppingApp/assets/88757043/46b25e31-ec58-45d1-93ed-fd60db41bfe8)
 
 
@@ -38,6 +43,12 @@
 <td>
 
 ![image](https://github.com/MADElinessss/SeSACShoppingApp/assets/88757043/f7aa07e5-81d1-458f-92f2-664541580afc)
+
+</td>
+<td>
+    
+![image](https://github.com/MADElinessss/SeSACShoppingApp/assets/88757043/0233cd0d-b598-46cd-808e-352b37f49283)
+
 
 </td>
 </tr>
