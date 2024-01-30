@@ -71,7 +71,8 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch Section(rawValue: indexPath.section) {
         case .profile:
-            let cell = settingtableView.dequeueReusableCell(withIdentifier: "SettingsProfileTableViewCell", for: indexPath) as! SettingsProfileTableViewCell
+            let identifier = String(describing: SettingsProfileTableViewCell.self)
+            let cell = settingtableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! SettingsProfileTableViewCell
             
             let image = UserDefaultsManager.shared.selectedImage
             cell.profileImageView.image = UIImage(named: "\(image)")

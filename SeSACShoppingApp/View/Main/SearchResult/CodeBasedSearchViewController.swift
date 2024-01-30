@@ -101,7 +101,8 @@ extension CodeBasedSearchViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CodeBasedSearchTableViewCell", for: indexPath) as! CodeBasedSearchTableViewCell
+        let identifier = String(describing: CodeBasedSearchTableViewCell.self)
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! CodeBasedSearchTableViewCell
         
         
         return cell

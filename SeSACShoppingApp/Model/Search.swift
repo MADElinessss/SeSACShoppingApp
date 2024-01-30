@@ -8,14 +8,14 @@
 import Foundation
 
 // MARK: - Search
-struct Search: Codable {
+struct Search: Decodable {
     let lastBuildDate: String?
     let total, start, display: Int?
     let items: [Item]?
 }
 
 // MARK: - Item
-struct Item: Codable {
+struct Item: Decodable {
     let title: String
     let link: String
     let image: String

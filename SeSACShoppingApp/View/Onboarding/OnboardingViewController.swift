@@ -24,7 +24,11 @@ class OnboardingViewController: UIViewController {
     
     @IBAction func startButtonTapped(_ sender: UIButton) {
         
-        let viewController = storyboard?.instantiateViewController(withIdentifier: ProfileSettingViewController.identifier) as! ProfileSettingViewController
+//        let viewController = storyboard?.instantiateViewController(withIdentifier: ProfileSettingViewController.identifier) as! ProfileSettingViewController
+        guard let viewController = storyboard?.instantiateViewController(withIdentifier: ProfileSettingViewController.identifier) as? ProfileSettingViewController else {
+            return
+        }
+        
         viewController.cameFromOnboarding = true
         navigationController?.pushViewController(viewController, animated: true)
     }
