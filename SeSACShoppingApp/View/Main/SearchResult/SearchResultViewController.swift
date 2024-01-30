@@ -19,7 +19,6 @@ class SearchResultViewController: UIViewController {
     @IBOutlet weak var itemCollectionView: UICollectionView!
     
     let sectionInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-    let manager = APIManager()
     
     var items: [Item] = []
     var searchResult: Search?
@@ -77,7 +76,7 @@ class SearchResultViewController: UIViewController {
 
     // MARK: fetchItems - API 호출 및 데이터 가져오기
     private func fetchItems(sort: String) {
-        manager.callRequest(searchKeyword, sort, page: page) { [weak self] searchResult in
+        APIManager.shared.callRequest(searchKeyword, sort, page: page) { [weak self] searchResult in
             guard let self = self else { return }
             
             if self.page == 1 {

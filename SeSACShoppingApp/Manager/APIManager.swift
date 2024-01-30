@@ -9,6 +9,9 @@ import Alamofire
 import Foundation
 
 struct APIManager {
+    
+    static let shared = APIManager()
+    
     func callRequest(_ keyword: String, _ sort: String, page: Int, perPage: Int = 30, completionHandler: @escaping (Search) -> Void) {
         
         let encodedKeyword = keyword.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
