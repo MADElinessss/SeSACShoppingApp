@@ -8,9 +8,8 @@
 
 </td>
 <td>
-    
-![image](https://github.com/MADElinessss/SeSACShoppingApp/assets/88757043/46b25e31-ec58-45d1-93ed-fd60db41bfe8)
 
+![image](https://github.com/MADElinessss/SeSACShoppingApp/assets/88757043/f065c8dc-ed73-4425-be94-5b504fa5d676)
 
 </td>
 <td>
@@ -20,7 +19,9 @@
 </td>
 <td>
 
-![image](https://github.com/MADElinessss/SeSACShoppingApp/assets/88757043/f065c8dc-ed73-4425-be94-5b504fa5d676)
+    
+![image](https://github.com/MADElinessss/SeSACShoppingApp/assets/88757043/46b25e31-ec58-45d1-93ed-fd60db41bfe8)
+
 
 </td>
 </tr>
