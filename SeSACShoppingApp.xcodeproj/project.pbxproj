@@ -46,6 +46,7 @@
 		C148B8BB2B59391300795223 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C148B8BA2B59391300795223 /* SettingViewController.swift */; };
 		C148B8BF2B59474B00795223 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C148B8BD2B59474B00795223 /* TableViewCell.swift */; };
 		C148B8C02B59474B00795223 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C148B8BE2B59474B00795223 /* TableViewCell.xib */; };
+		C1C6E27C2B68ACA1005ADF3B /* CodeBasedOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C6E27B2B68ACA1005ADF3B /* CodeBasedOnboardingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		C148B8BA2B59391300795223 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		C148B8BD2B59474B00795223 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		C148B8BE2B59474B00795223 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		C1C6E27B2B68ACA1005ADF3B /* CodeBasedOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBasedOnboardingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +213,7 @@
 		C148B8A52B59073300795223 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				C1C6E27B2B68ACA1005ADF3B /* CodeBasedOnboardingViewController.swift */,
 				C148B8A62B59075400795223 /* OnboardingViewController.swift */,
 				C148B8AD2B59195800795223 /* ProfileImageSelectViewController.swift */,
 				C148B8AB2B590E1500795223 /* ProfileSettingViewController.swift */,
@@ -343,6 +346,7 @@
 				C148B8BF2B59474B00795223 /* TableViewCell.swift in Sources */,
 				C1381B592B5A9A4A001A5285 /* UserDefaultsManager.swift in Sources */,
 				C148B8AA2B590BB900795223 /* UIViewController+Extension.swift in Sources */,
+				C1C6E27C2B68ACA1005ADF3B /* CodeBasedOnboardingViewController.swift in Sources */,
 				C148B8B92B5938D900795223 /* SearchViewController.swift in Sources */,
 				C12C35C22B65095B0065AB2B /* CodeBasedSearchViewController.swift in Sources */,
 				C1381B5B2B5A9CF6001A5285 /* Search.swift in Sources */,
