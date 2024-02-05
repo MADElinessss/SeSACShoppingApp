@@ -45,13 +45,13 @@
 </td>
 <td>
 
-![image](https://github.com/MADElinessss/SeSACShoppingApp/assets/88757043/b3a656bb-c0f7-4875-9223-ec37f8df08a1)
+![image](https://github.com/MADElinessss/SeSACShoppingApp/assets/88757043/0233cd0d-b598-46cd-808e-352b37f49283)
 
 
 </td>
 <td>
     
-![image](https://github.com/MADElinessss/SeSACShoppingApp/assets/88757043/0233cd0d-b598-46cd-808e-352b37f49283)
+![Simulator Screenshot - iPhone 15 Pro - 2024-02-05 at 19 26 02](https://github.com/MADElinessss/SeSACShoppingApp/assets/88757043/d8167433-565f-4552-9dcc-830c0e64f4bc)
 
 
 </td>
