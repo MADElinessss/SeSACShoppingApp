@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C11840F82B70DEB70033E28A /* APISessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11840F72B70DEB70033E28A /* APISessionManager.swift */; };
+		C11840FA2B70E0430033E28A /* ShoppingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11840F92B70E0430033E28A /* ShoppingAPI.swift */; };
 		C12C35C22B65095B0065AB2B /* CodeBasedSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12C35C12B65095B0065AB2B /* CodeBasedSearchViewController.swift */; };
 		C12C35C52B6509E40065AB2B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C12C35C42B6509E40065AB2B /* SnapKit */; };
 		C12C35C72B6509E40065AB2B /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = C12C35C62B6509E40065AB2B /* SnapKit-Dynamic */; };
@@ -50,6 +52,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C11840F72B70DEB70033E28A /* APISessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISessionManager.swift; sourceTree = "<group>"; };
+		C11840F92B70E0430033E28A /* ShoppingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingAPI.swift; sourceTree = "<group>"; };
 		C12C35C12B65095B0065AB2B /* CodeBasedSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBasedSearchViewController.swift; sourceTree = "<group>"; };
 		C12C35C82B650D5C0065AB2B /* CodeBasedSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBasedSearchTableViewCell.swift; sourceTree = "<group>"; };
 		C1381B472B5A8B58001A5285 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +137,7 @@
 				C148B8A32B59051A00795223 /* APIKey.swift */,
 				C1381B5A2B5A9CF6001A5285 /* Search.swift */,
 				C1381B6B2B5BF412001A5285 /* Settings.swift */,
+				C11840F92B70E0430033E28A /* ShoppingAPI.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -143,6 +148,7 @@
 				C1381B502B5A99C1001A5285 /* APIManager.swift */,
 				C1381B582B5A9A4A001A5285 /* UserDefaultsManager.swift */,
 				C1381BB72B5FFB6A001A5285 /* LocalNotificationManager.swift */,
+				C11840F72B70DEB70033E28A /* APISessionManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -360,8 +366,10 @@
 				C148B8A42B59051A00795223 /* APIKey.swift in Sources */,
 				C148B8902B5904F400795223 /* SceneDelegate.swift in Sources */,
 				C1381B5E2B5BD6B0001A5285 /* ItemDetailViewController.swift in Sources */,
+				C11840FA2B70E0430033E28A /* ShoppingAPI.swift in Sources */,
 				C148B8AC2B590E1500795223 /* ProfileSettingViewController.swift in Sources */,
 				C1381B752B5E47ED001A5285 /* SSButton.swift in Sources */,
+				C11840F82B70DEB70033E28A /* APISessionManager.swift in Sources */,
 				C12C35C92B650D5C0065AB2B /* CodeBasedSearchTableViewCell.swift in Sources */,
 				C1381B772B5E4E5A001A5285 /* SSNavigationTitle.swift in Sources */,
 				C1381B692B5BF205001A5285 /* SettingsProfileTableViewCell.swift in Sources */,
