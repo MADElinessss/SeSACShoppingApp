@@ -10,7 +10,28 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
+    var window: UIWindow?
+    var tabBarController: UITabBarController?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+                
+        tabBarController = UITabBarController()
+        
+        let firstViewController = CodeBasedSearchViewController()
+        firstViewController.view.backgroundColor = .red
+        firstViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 0)
+        
+        let secondViewController = CodeBasedSettingsViewController()
+        secondViewController.view.backgroundColor = .blue
+        secondViewController.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 1)
+        
+        tabBarController?.viewControllers = [firstViewController, secondViewController]
+        
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
         
         let manager = LocalNotificationManager()
         

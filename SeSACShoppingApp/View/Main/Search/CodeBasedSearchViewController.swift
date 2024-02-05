@@ -19,6 +19,8 @@ class CodeBasedSearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("떴다네")
+        
         configureView()
         configureHierarchy()
         setConstraints()

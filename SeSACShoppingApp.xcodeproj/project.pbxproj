@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		C11840F82B70DEB70033E28A /* APISessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11840F72B70DEB70033E28A /* APISessionManager.swift */; };
 		C11840FA2B70E0430033E28A /* ShoppingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11840F92B70E0430033E28A /* ShoppingAPI.swift */; };
+		C11840FC2B70E7A00033E28A /* CodeBasedSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11840FB2B70E7A00033E28A /* CodeBasedSettingsViewController.swift */; };
+		C11840FF2B70E8280033E28A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11840FE2B70E8280033E28A /* BaseViewController.swift */; };
 		C12C35C22B65095B0065AB2B /* CodeBasedSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12C35C12B65095B0065AB2B /* CodeBasedSearchViewController.swift */; };
 		C12C35C52B6509E40065AB2B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C12C35C42B6509E40065AB2B /* SnapKit */; };
 		C12C35C72B6509E40065AB2B /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = C12C35C62B6509E40065AB2B /* SnapKit-Dynamic */; };
@@ -54,6 +56,8 @@
 /* Begin PBXFileReference section */
 		C11840F72B70DEB70033E28A /* APISessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISessionManager.swift; sourceTree = "<group>"; };
 		C11840F92B70E0430033E28A /* ShoppingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingAPI.swift; sourceTree = "<group>"; };
+		C11840FB2B70E7A00033E28A /* CodeBasedSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBasedSettingsViewController.swift; sourceTree = "<group>"; };
+		C11840FE2B70E8280033E28A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C12C35C12B65095B0065AB2B /* CodeBasedSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBasedSearchViewController.swift; sourceTree = "<group>"; };
 		C12C35C82B650D5C0065AB2B /* CodeBasedSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBasedSearchTableViewCell.swift; sourceTree = "<group>"; };
 		C1381B472B5A8B58001A5285 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
@@ -109,13 +113,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C11840FD2B70E8200033E28A /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				C11840FE2B70E8280033E28A /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
 		C1381B462B5A8B4E001A5285 /* SearchResult */ = {
 			isa = PBXGroup;
 			children = (
 				C1381B472B5A8B58001A5285 /* SearchResultViewController.swift */,
 				C1381B492B5A8B62001A5285 /* SearchResultCollectionViewCell.swift */,
 				C1381B4A2B5A8B62001A5285 /* SearchResultCollectionViewCell.xib */,
-				C12C35C12B65095B0065AB2B /* CodeBasedSearchViewController.swift */,
 				C12C35C82B650D5C0065AB2B /* CodeBasedSearchTableViewCell.swift */,
 			);
 			path = SearchResult;
@@ -124,6 +135,7 @@
 		C1381B4D2B5A9902001A5285 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C11840FD2B70E8200033E28A /* Base */,
 				C1381B732B5E47E0001A5285 /* Component */,
 				C148B8A52B59073300795223 /* Onboarding */,
 				C148B8B72B59389E00795223 /* Main */,
@@ -164,6 +176,7 @@
 		C1381B622B5BF1DE001A5285 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				C11840FB2B70E7A00033E28A /* CodeBasedSettingsViewController.swift */,
 				C148B8BA2B59391300795223 /* SettingViewController.swift */,
 				C1381B632B5BF1F2001A5285 /* SettingsTableViewCell.swift */,
 				C1381B642B5BF1F2001A5285 /* SettingsTableViewCell.xib */,
@@ -252,6 +265,7 @@
 		C148B8BC2B59473E00795223 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				C12C35C12B65095B0065AB2B /* CodeBasedSearchViewController.swift */,
 				C148B8B82B5938D900795223 /* SearchViewController.swift */,
 				C148B8BD2B59474B00795223 /* TableViewCell.swift */,
 				C148B8BE2B59474B00795223 /* TableViewCell.xib */,
@@ -353,9 +367,11 @@
 				C1381B592B5A9A4A001A5285 /* UserDefaultsManager.swift in Sources */,
 				C148B8AA2B590BB900795223 /* UIViewController+Extension.swift in Sources */,
 				C1C6E27C2B68ACA1005ADF3B /* CodeBasedOnboardingViewController.swift in Sources */,
+				C11840FF2B70E8280033E28A /* BaseViewController.swift in Sources */,
 				C148B8B92B5938D900795223 /* SearchViewController.swift in Sources */,
 				C12C35C22B65095B0065AB2B /* CodeBasedSearchViewController.swift in Sources */,
 				C1381B5B2B5A9CF6001A5285 /* Search.swift in Sources */,
+				C11840FC2B70E7A00033E28A /* CodeBasedSettingsViewController.swift in Sources */,
 				C1381B4B2B5A8B62001A5285 /* SearchResultCollectionViewCell.swift in Sources */,
 				C148B88E2B5904F400795223 /* AppDelegate.swift in Sources */,
 				C148B8B32B59228800795223 /* ProfileCollectionViewCell.swift in Sources */,
