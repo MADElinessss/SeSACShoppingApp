@@ -16,61 +16,89 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let value = UserDefaultsManager.shared.userState
         print(value)
         
-        guard let scene = (scene as? UIWindowScene) else {
-            print("Scene casting to UIWindowScene failed")
-            return
-        }
-        
-        window = UIWindow(windowScene: scene)
-        
         if !value {
-            print("User state is false - navigating to Onboarding")
+            guard let scene = (scene as? UIWindowScene) else { return }
+            
+            window = UIWindow(windowScene: scene)
             
             let sb = UIStoryboard(name: "Onboarding", bundle: nil)
-            
-            guard let viewController = sb.instantiateViewController(withIdentifier: OnboardingViewController.identifier) as? OnboardingViewController else {
-                print("Could not instantiate OnboardingViewController from storyboard")
-                return
-            }
+            let viewController = sb.instantiateViewController(withIdentifier: OnboardingViewController.identifier) as! OnboardingViewController
             
             let nav = UINavigationController(rootViewController: viewController)
+            
             window?.rootViewController = nav
             
+            window?.makeKeyAndVisible()
+            
         } else {
-
-            let tabBarController = UITabBarController()
+            // MARK: 첫 진입 아니면 -> 메인 화면
+            guard let scene = (scene as? UIWindowScene) else { return }
             
+            window = UIWindow(windowScene: scene)
             
-            let searchVC = CodeBasedSearchViewController()
-            searchVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
+            // MARK: 메인화면이 탭바 전체
             
-            let settingsVC = CodeBasedSettingsViewController()
-            settingsVC.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 1)
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: "mainTabBarController") as! UITabBarController
             
-            tabBarController.viewControllers = [searchVC, settingsVC].map { UINavigationController(rootViewController: $0) }
-
-            window?.rootViewController = tabBarController
+            window?.rootViewController = vc
             
+            window?.makeKeyAndVisible()
         }
-        if let tabBarController = window?.rootViewController as? UITabBarController {
-            let appearance = UITabBarAppearance()
-            appearance.configureWithOpaqueBackground()
-            appearance.backgroundColor = .black
-
-            appearance.stackedLayoutAppearance.normal.iconColor = .gray
-            appearance.stackedLayoutAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.gray]
-
-            appearance.stackedLayoutAppearance.selected.iconColor = UIColor(named: "point")
-            appearance.stackedLayoutAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "point")!]
-
-            tabBarController.tabBar.standardAppearance = appearance
-            if #available(iOS 15.0, *) {
-                tabBarController.tabBar.scrollEdgeAppearance = appearance
-            }
-        }
-
         
-        window?.makeKeyAndVisible()
+//        guard let scene = (scene as? UIWindowScene) else {
+//            print("Scene casting to UIWindowScene failed")
+//            return
+//        }
+//        
+//        window = UIWindow(windowScene: scene)
+//        
+//        if !value {
+//            print("User state is false - navigating to Onboarding")
+//            
+//            let sb = UIStoryboard(name: "Onboarding", bundle: nil)
+//            
+//            guard let viewController = sb.instantiateViewController(withIdentifier: OnboardingViewController.identifier) as? OnboardingViewController else {
+//                print("Could not instantiate OnboardingViewController from storyboard")
+//                return
+//            }
+//            
+//            let nav = UINavigationController(rootViewController: viewController)
+//            window?.rootViewController = nav
+//            
+//        } else {
+//
+//            let tabBarController = UITabBarController()
+//            
+//            
+//            let searchVC = CodeBasedSearchViewController()
+//            searchVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
+//            
+//            let settingsVC = CodeBasedSettingsViewController()
+//            settingsVC.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 1)
+//            
+//            tabBarController.viewControllers = [searchVC, settingsVC].map { UINavigationController(rootViewController: $0) }
+//
+//            window?.rootViewController = tabBarController
+//            
+//        }
+//        if let tabBarController = window?.rootViewController as? UITabBarController {
+//            let appearance = UITabBarAppearance()
+//            appearance.configureWithOpaqueBackground()
+//            appearance.backgroundColor = .black
+//
+//            appearance.stackedLayoutAppearance.normal.iconColor = .gray
+//            appearance.stackedLayoutAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.gray]
+//
+//            appearance.stackedLayoutAppearance.selected.iconColor = UIColor(named: "point")
+//            appearance.stackedLayoutAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "point")!]
+//
+//            tabBarController.tabBar.standardAppearance = appearance
+//            if #available(iOS 15.0, *) {
+//                tabBarController.tabBar.scrollEdgeAppearance = appearance
+//            }
+//        }
+//        window?.makeKeyAndVisible()
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

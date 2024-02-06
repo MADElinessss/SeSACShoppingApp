@@ -7,6 +7,12 @@
 
 import UIKit
 
+enum ValidationError: Error {
+    case containsCharacter(character: Character)
+    case containsInt
+    case wrongLength
+}
+
 // MARK: 프로필 + 닉네임 설정
 class ProfileSettingViewController: UIViewController {
     
@@ -37,7 +43,6 @@ class ProfileSettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         completeButton.isEnabled = false
         setBackGroundColor()
         configureView()
@@ -48,34 +53,51 @@ class ProfileSettingViewController: UIViewController {
         
         guard let text = textField.text else { return }
         
-        // 글자 수 검사
-        if text.count < 2 || text.count > 10 {
-            warningLabel.text = "2글자 이상 10글자 미만으로 설정해주세요."
-            completeButton.isEnabled = false
-            return
-        }
-        
-        // 특수문자 검사
-        let specialCharacters = "@#$%"
-        for character in text {
-            if specialCharacters.contains(character) {
+        do {
+            let result = try validateUserInputError(text)
+        } catch {
+            switch error {
+            case ValidationError.containsCharacter(let character):
                 warningLabel.text = "닉네임에 \(character)는 포함할 수 없어요."
                 completeButton.isEnabled = false
                 return
+            case ValidationError.containsInt:
+                warningLabel.text = "닉네임에 숫자는 포함할 수 없어요."
+                completeButton.isEnabled = false
+                return
+            case ValidationError.wrongLength:
+                warningLabel.text = "2글자 이상 10글자 미만으로 설정해주세요."
+                completeButton.isEnabled = false
+                return
+            default:
+                print("default")
             }
         }
-        
-        // 숫자 검사
-        let digitCharacterSet = CharacterSet.decimalDigits
-        if text.rangeOfCharacter(from: digitCharacterSet) != nil {
-            warningLabel.text = "닉네임에 숫자는 포함할 수 없어요."
-            completeButton.isEnabled = false
-            return
-        }
-        
+   
         warningLabel.text = "사용할 수 있는 닉네임이에요."
         completeButton.isEnabled = true
         
+    }
+    
+    func validateUserInputError(_ text: String) throws -> Bool {
+        
+        guard text.count >= 2 && text.count < 10 else {
+            throw ValidationError.wrongLength
+        }
+        
+        let digitCharacterSet = CharacterSet.decimalDigits
+        guard text.rangeOfCharacter(from: digitCharacterSet) == nil else {
+            throw ValidationError.containsInt
+        }
+        
+        let specialCharacters = "@#$%"
+        for character in text {
+            guard !specialCharacters.contains(character) else {
+                throw ValidationError.containsCharacter(character: character)
+            }
+        }
+        
+        return true
     }
     
     @IBAction func tapGestureRecognizerTapped(_ sender: UITapGestureRecognizer) {

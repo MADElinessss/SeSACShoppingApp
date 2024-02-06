@@ -124,10 +124,10 @@
 		C1381B462B5A8B4E001A5285 /* SearchResult */ = {
 			isa = PBXGroup;
 			children = (
+				C12C35C82B650D5C0065AB2B /* CodeBasedSearchTableViewCell.swift */,
 				C1381B472B5A8B58001A5285 /* SearchResultViewController.swift */,
 				C1381B492B5A8B62001A5285 /* SearchResultCollectionViewCell.swift */,
 				C1381B4A2B5A8B62001A5285 /* SearchResultCollectionViewCell.xib */,
-				C12C35C82B650D5C0065AB2B /* CodeBasedSearchTableViewCell.swift */,
 			);
 			path = SearchResult;
 			sourceTree = "<group>";

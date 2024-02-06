@@ -44,6 +44,7 @@ class CodeBasedSearchViewController: UIViewController {
             )
         searchBar.searchTextField.leftView?.tintColor = .lightGray
         
+        
         leftSubtitle.text = "최근 검색"
         leftSubtitle.textColor = .white
         leftSubtitle.font = .systemFont(ofSize: 16, weight: .bold)

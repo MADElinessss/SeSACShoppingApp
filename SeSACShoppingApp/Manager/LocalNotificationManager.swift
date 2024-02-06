@@ -19,8 +19,8 @@ struct LocalNotificationManager {
         let currentDate = Date()
         
         var component = DateComponents()
-        component.hour = 23
-        component.minute = 9
+        component.hour = 19
+        component.minute = 26
         
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ko_KR")

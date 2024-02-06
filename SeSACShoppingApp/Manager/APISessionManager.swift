@@ -21,13 +21,13 @@ class APISessionManager {
     
     private init() { }
     
-    func callRequest<T: Decodable>(keyword: String, url: URL, completionHandler: @escaping ((T?, ErrorType?) -> Void)) {
+    func callRequest<T: Decodable>(keyword: String, sort: String, page: Int, url: URL, completionHandler: @escaping ((T?, ErrorType?) -> Void)) {
         
         let encodedKeyword = keyword.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         
-//        let url = "https://openapi.naver.com/v1/search/shop.json?query=\(encodedKeyword)&display=\(perPage)&start=\(page)&sort=\(sort)"
+        let url = URL(string: "https://openapi.naver.com/v1/search/shop.json?query=\(encodedKeyword)&display=30&start=\(page)&sort=\(sort)")
         
-        var request: URLRequest = URLRequest(url: url)
+        var request: URLRequest = URLRequest(url: url!)
         
         request.addValue(APIKey.naverClientID, forHTTPHeaderField: "X-Naver-Client-Id")
         request.addValue(APIKey.naverClientSecret, forHTTPHeaderField: "X-Naver-Client-Secret")
