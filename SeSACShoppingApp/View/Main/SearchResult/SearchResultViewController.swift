@@ -76,24 +76,25 @@ class SearchResultViewController: UIViewController {
 
     // MARK: fetchItems - API 호출 및 데이터 가져오기
     private func fetchItems(sort: String) {
-        APIManager.shared.callRequest(searchKeyword, sort, page: page) { [weak self] searchResult in
-            guard let self = self else { return }
+        
+        APISessionManager.shared.callRequest(type: Search.self, keyword: searchKeyword, sort: sort, page: 1) { item, error in
+ 
+            guard let item = item else { return }
             
             if self.page == 1 {
-                self.items = searchResult.items ?? []
+                self.items = item.items ?? []
             } else {
-                self.items.append(contentsOf: searchResult.items ?? [])
+                self.items.append(contentsOf: item.items ?? [])
             }
             
-            if let totalNumber = searchResult.total {
+            if let totalNumber = item.total {
                 let formatter = NumberFormatter()
                 formatter.numberStyle = .decimal
                 let formattedCount = formatter.string(from: NSNumber(value: totalNumber)) ?? "\(totalNumber)"
                 self.totalCountLabel.text = "\(formattedCount)개의 검색 결과"
             }
-
-            // MARK: scroll to top
-            itemCollectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+            
+            self.itemCollectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
             
             self.itemCollectionView.reloadData()
         }

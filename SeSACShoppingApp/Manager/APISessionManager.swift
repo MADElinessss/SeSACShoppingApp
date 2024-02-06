@@ -20,20 +20,23 @@ class APISessionManager {
     static let shared = APISessionManager()
     
     private init() { }
-    
-    func callRequest<T: Decodable>(keyword: String, sort: String, page: Int, url: URL, completionHandler: @escaping ((T?, ErrorType?) -> Void)) {
+
+    func callRequest<T: Decodable>(type: T.Type, keyword: String, sort: String, page: Int, completionHandler: @escaping ((T?, ErrorType?) -> Void)) {
         
         let encodedKeyword = keyword.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         
         let url = URL(string: "https://openapi.naver.com/v1/search/shop.json?query=\(encodedKeyword)&display=30&start=\(page)&sort=\(sort)")
         
         var request: URLRequest = URLRequest(url: url!)
-        
+
         request.addValue(APIKey.naverClientID, forHTTPHeaderField: "X-Naver-Client-Id")
         request.addValue(APIKey.naverClientSecret, forHTTPHeaderField: "X-Naver-Client-Secret")
+
         
         URLSession.shared.dataTask(with: request) { data, response, error in
+
             DispatchQueue.main.async() {
+                
                 guard error == nil else {
                     completionHandler(nil, .failedRequest)
                     return
@@ -60,7 +63,7 @@ class APISessionManager {
                     completionHandler(nil, .wrongData)
                 }
             }
-        }
+        }.resume()
     }
     
 }
