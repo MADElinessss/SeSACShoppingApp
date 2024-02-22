@@ -50,6 +50,9 @@
 		C148B8BB2B59391300795223 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C148B8BA2B59391300795223 /* SettingViewController.swift */; };
 		C148B8BF2B59474B00795223 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C148B8BD2B59474B00795223 /* TableViewCell.swift */; };
 		C148B8C02B59474B00795223 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C148B8BE2B59474B00795223 /* TableViewCell.xib */; };
+		C1BC9A482B8760EF0083E181 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BC9A472B8760EF0083E181 /* LoginViewController.swift */; };
+		C1BC9A4B2B8763DB0083E181 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BC9A4A2B8763DB0083E181 /* LoginViewModel.swift */; };
+		C1BC9A4D2B8763FA0083E181 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BC9A4C2B8763FA0083E181 /* Observable.swift */; };
 		C1C6E27C2B68ACA1005ADF3B /* CodeBasedOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C6E27B2B68ACA1005ADF3B /* CodeBasedOnboardingViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +98,9 @@
 		C148B8BA2B59391300795223 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		C148B8BD2B59474B00795223 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		C148B8BE2B59474B00795223 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		C1BC9A472B8760EF0083E181 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C1BC9A4A2B8763DB0083E181 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		C1BC9A4C2B8763FA0083E181 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		C1C6E27B2B68ACA1005ADF3B /* CodeBasedOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBasedOnboardingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,6 +141,7 @@
 		C1381B4D2B5A9902001A5285 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C1BC9A462B8760CC0083E181 /* Login */,
 				C11840FD2B70E8200033E28A /* Base */,
 				C1381B732B5E47E0001A5285 /* Component */,
 				C148B8A52B59073300795223 /* Onboarding */,
@@ -214,6 +221,7 @@
 		C148B88C2B5904F400795223 /* SeSACShoppingApp */ = {
 			isa = PBXGroup;
 			children = (
+				C1BC9A492B8763CF0083E181 /* ViewModel */,
 				C1381B4F2B5A99B8001A5285 /* Manager */,
 				C1381B4E2B5A9914001A5285 /* Model */,
 				C1381B4D2B5A9902001A5285 /* View */,
@@ -271,6 +279,23 @@
 				C148B8BE2B59474B00795223 /* TableViewCell.xib */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		C1BC9A462B8760CC0083E181 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				C1BC9A472B8760EF0083E181 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		C1BC9A492B8763CF0083E181 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C1BC9A4A2B8763DB0083E181 /* LoginViewModel.swift */,
+				C1BC9A4C2B8763FA0083E181 /* Observable.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,13 +400,16 @@
 				C1381B4B2B5A8B62001A5285 /* SearchResultCollectionViewCell.swift in Sources */,
 				C148B88E2B5904F400795223 /* AppDelegate.swift in Sources */,
 				C148B8B32B59228800795223 /* ProfileCollectionViewCell.swift in Sources */,
+				C1BC9A482B8760EF0083E181 /* LoginViewController.swift in Sources */,
 				C148B8A72B59075400795223 /* OnboardingViewController.swift in Sources */,
 				C148B8AE2B59195800795223 /* ProfileImageSelectViewController.swift in Sources */,
 				C1381B482B5A8B58001A5285 /* SearchResultViewController.swift in Sources */,
 				C1381BB82B5FFB6A001A5285 /* LocalNotificationManager.swift in Sources */,
 				C148B8A42B59051A00795223 /* APIKey.swift in Sources */,
 				C148B8902B5904F400795223 /* SceneDelegate.swift in Sources */,
+				C1BC9A4B2B8763DB0083E181 /* LoginViewModel.swift in Sources */,
 				C1381B5E2B5BD6B0001A5285 /* ItemDetailViewController.swift in Sources */,
+				C1BC9A4D2B8763FA0083E181 /* Observable.swift in Sources */,
 				C11840FA2B70E0430033E28A /* ShoppingAPI.swift in Sources */,
 				C148B8AC2B590E1500795223 /* ProfileSettingViewController.swift in Sources */,
 				C1381B752B5E47ED001A5285 /* SSButton.swift in Sources */,
