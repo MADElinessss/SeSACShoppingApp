@@ -26,9 +26,12 @@ class LoginViewController: BaseViewController {
         
         codeTextField.addTarget(self, action: #selector(codeTextFieldChanged), for: .editingChanged)
         
-        viewModel.code.bind { value in
-            print(value)
-            self.resultLabel.text = value
+//        viewModel.code.bind { value in
+//            print(value)
+//            self.resultLabel.text = value
+//        }
+        viewModel.result.bind { [weak self] result in
+            self?.resultLabel.text = result
         }
     }
     
