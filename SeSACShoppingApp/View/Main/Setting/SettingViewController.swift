@@ -11,14 +11,13 @@ class SettingViewController: UIViewController {
     
     @IBOutlet weak var settingtableView: UITableView!
     
-    var selectedImage = UserDefaultsManager.shared.selectedImage {
-        didSet {
-            settingtableView.reloadData()
-        }
-    }
+    let viewModel = SettingViewModel()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        let latestImageName = UserDefaultsManager.shared.selectedImage
+        viewModel.selectedImage.value = latestImageName
         
         settingtableView.reloadData()
     }
@@ -29,6 +28,11 @@ class SettingViewController: UIViewController {
         configureTableView()
         setBackGroundColor()
         
+        viewModel.selectedImage.bind { value in
+            DispatchQueue.main.async {
+                self.settingtableView.reloadData()
+            }
+        }
     }
     
     func configureTableView() {
@@ -74,8 +78,15 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             let identifier = String(describing: SettingsProfileTableViewCell.self)
             let cell = settingtableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! SettingsProfileTableViewCell
             
-            let image = UserDefaultsManager.shared.selectedImage
-            cell.profileImageView.image = UIImage(named: "\(image)")
+            let imageName = viewModel.selectedImage.value
+            if let image = UIImage(named: imageName) {
+                cell.profileImageView.image = image
+            } else {
+                print("이미지를 불러올 수 없음: \(imageName)")
+                
+                cell.profileImageView.image = UIImage(named: "defaultImage")
+            }
+
             cell.profileImageView.clipsToBounds = true
             cell.profileImageView.layer.cornerRadius = 25
             cell.profileImageView.layer.borderColor = UIColor(named: "point")?.cgColor

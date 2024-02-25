@@ -17,6 +17,7 @@
 		C12C35C92B650D5C0065AB2B /* CodeBasedSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12C35C82B650D5C0065AB2B /* CodeBasedSearchTableViewCell.swift */; };
 		C132C11C2B8B42F700C660FB /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C132C11B2B8B42F700C660FB /* ProfileViewModel.swift */; };
 		C132C1202B8B481800C660FB /* ProfileImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C132C11F2B8B481800C660FB /* ProfileImageViewModel.swift */; };
+		C132C1222B8B4AC500C660FB /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C132C1212B8B4AC500C660FB /* SettingViewModel.swift */; };
 		C1381B482B5A8B58001A5285 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1381B472B5A8B58001A5285 /* SearchResultViewController.swift */; };
 		C1381B4B2B5A8B62001A5285 /* SearchResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1381B492B5A8B62001A5285 /* SearchResultCollectionViewCell.swift */; };
 		C1381B4C2B5A8B62001A5285 /* SearchResultCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1381B4A2B5A8B62001A5285 /* SearchResultCollectionViewCell.xib */; };
@@ -67,6 +68,7 @@
 		C12C35C82B650D5C0065AB2B /* CodeBasedSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBasedSearchTableViewCell.swift; sourceTree = "<group>"; };
 		C132C11B2B8B42F700C660FB /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		C132C11F2B8B481800C660FB /* ProfileImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageViewModel.swift; sourceTree = "<group>"; };
+		C132C1212B8B4AC500C660FB /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		C1381B472B5A8B58001A5285 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		C1381B492B5A8B62001A5285 /* SearchResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCollectionViewCell.swift; sourceTree = "<group>"; };
 		C1381B4A2B5A8B62001A5285 /* SearchResultCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				C1BC9A4C2B8763FA0083E181 /* Observable.swift */,
 				C132C11B2B8B42F700C660FB /* ProfileViewModel.swift */,
 				C132C11F2B8B481800C660FB /* ProfileImageViewModel.swift */,
+				C132C1212B8B4AC500C660FB /* SettingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				C1C6E27C2B68ACA1005ADF3B /* CodeBasedOnboardingViewController.swift in Sources */,
 				C11840FF2B70E8280033E28A /* BaseViewController.swift in Sources */,
 				C148B8B92B5938D900795223 /* SearchViewController.swift in Sources */,
+				C132C1222B8B4AC500C660FB /* SettingViewModel.swift in Sources */,
 				C132C1202B8B481800C660FB /* ProfileImageViewModel.swift in Sources */,
 				C12C35C22B65095B0065AB2B /* CodeBasedSearchViewController.swift in Sources */,
 				C1381B5B2B5A9CF6001A5285 /* Search.swift in Sources */,
