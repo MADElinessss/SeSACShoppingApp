@@ -14,7 +14,7 @@ class ProfileImageSelectViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var completeButton: UIButton!
     
-    var selectedImage: String = "profile1"
+    let viewModel = ProfileImageSelectViewModel()
     
     var savedProfileImage: String = UserDefaultsManager.shared.selectedImage {
         didSet {
@@ -30,16 +30,18 @@ class ProfileImageSelectViewController: UIViewController {
         configureCollectionView()
         navigationItem.titleView = UILabel.customNavigationTitle("프로필 이미지 설정")
         
+        viewModel.loadSavedImage()
+        profileImageView.image = UIImage(named: viewModel.selectedImage.value)
     }
     
     @IBAction func completeButtonTapped(_ sender: UIButton) {
-        UserDefaultsManager.shared.selectedImage = selectedImage
+        viewModel.saveSelectedImage()
         navigationController?.popViewController(animated: true)
     }
     
     func configureView() {
         
-        profileImageView.image = UIImage(named: "\(savedProfileImage)")
+        profileImageView.image = UIImage(named: viewModel.selectedImage.value)
         profileImageView.clipsToBounds = true
         profileImageView.layer.cornerRadius = 65
         profileImageView.layer.borderColor = UIColor(named: "point")?.cgColor
@@ -83,8 +85,8 @@ extension ProfileImageSelectViewController: UICollectionViewDelegate, UICollecti
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
         if let tappedImageView = sender.view as? UIImageView {
             let tappedIndex = tappedImageView.tag
-            selectedImage = "profile\(tappedIndex + 1)"
-            profileImageView.image = UIImage(named: selectedImage)
+            viewModel.selectedImage.value = "profile\(tappedIndex + 1)"
+            profileImageView.image = UIImage(named: viewModel.selectedImage.value)
 
             for i in 0..<collectionView.numberOfItems(inSection: 0) {
                 if let cell = collectionView.cellForItem(at: IndexPath(item: i, section: 0)) as? ProfileCollectionViewCell {
