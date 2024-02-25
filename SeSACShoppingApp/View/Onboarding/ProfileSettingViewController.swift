@@ -24,18 +24,14 @@ class ProfileSettingViewController: UIViewController {
     
     var cameFromOnboarding: Bool = false
     
-    var savedProfileImage: String = UserDefaultsManager.shared.selectedImage {
-        didSet {
-            profileButton.reloadInputViews()
-        }
-    }
+    let viewModel = ProfileViewModel()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        viewModel.savedProfileImage.value = UserDefaultsManager.shared.selectedImage
 
-        savedProfileImage = UserDefaultsManager.shared.selectedImage
-
-        profileButton.setImage(UIImage(named: savedProfileImage), for: .normal)
+        profileButton.setImage(UIImage(named: viewModel.savedProfileImage.value), for: .normal)
 
         navigationItem.titleView = UILabel.customNavigationTitle("프로필 설정")
     }
@@ -113,7 +109,7 @@ class ProfileSettingViewController: UIViewController {
     @IBAction func completeButtonTapped(_ sender: UIButton) {
         
         UserDefaultsManager.shared.userName = nicknameTextField.text ?? "고객님"
-        UserDefaultsManager.shared.selectedImage = savedProfileImage
+        UserDefaultsManager.shared.selectedImage = viewModel.fetchedProfileImage.value
         
         if cameFromOnboarding {
             // 온보딩 뷰에서 왔을 경우
@@ -142,7 +138,7 @@ class ProfileSettingViewController: UIViewController {
             nicknameTextField.text = UserDefaultsManager.shared.userName
         }
     
-        profileButton.setImage(UIImage(named: savedProfileImage), for: .normal)
+        profileButton.setImage(UIImage(named: viewModel.fetchedProfileImage.value), for: .normal)
         profileButton.clipsToBounds = true
         profileButton.layer.cornerRadius = 65
         profileButton.layer.borderColor = UIColor(named: "point")?.cgColor

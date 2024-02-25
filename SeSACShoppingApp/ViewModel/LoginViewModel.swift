@@ -32,19 +32,19 @@ class LoginViewModel {
     
     private func validateEmail(_ email: String) {
         if email.isEmpty {
-            result.text = "이메일을 입력해주세요."
+            result.value = "이메일을 입력해주세요."
         }
     }
     
     private func validatePassword(_ password: String) {
         if password.isEmpty {
-            result.text = "비밀번호를 입력해주세요."
+            result.value = "비밀번호를 입력해주세요."
         }
     }
     
     private func validateCode(_ code: String) {
         guard let num = Int(code) else {
-            result.text = "숫자만 입력해주세요."
+            result.value = "숫자만 입력해주세요."
             return
         }
         
@@ -52,10 +52,10 @@ class LoginViewModel {
             let format = NumberFormatter()
             format.numberStyle = .decimal // 숫자 쉼표 처리
             if format.string(for: num) != nil {
-                result.text = "유효한 코드입니다."
+                result.value = "유효한 코드입니다."
             }
         } else {
-            result.text = "유효하지 않는 코드입니다."
+            result.value = "유효하지 않는 코드입니다."
         }
     }
     

@@ -15,6 +15,7 @@
 		C12C35C52B6509E40065AB2B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C12C35C42B6509E40065AB2B /* SnapKit */; };
 		C12C35C72B6509E40065AB2B /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = C12C35C62B6509E40065AB2B /* SnapKit-Dynamic */; };
 		C12C35C92B650D5C0065AB2B /* CodeBasedSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12C35C82B650D5C0065AB2B /* CodeBasedSearchTableViewCell.swift */; };
+		C132C11C2B8B42F700C660FB /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C132C11B2B8B42F700C660FB /* ProfileViewModel.swift */; };
 		C1381B482B5A8B58001A5285 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1381B472B5A8B58001A5285 /* SearchResultViewController.swift */; };
 		C1381B4B2B5A8B62001A5285 /* SearchResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1381B492B5A8B62001A5285 /* SearchResultCollectionViewCell.swift */; };
 		C1381B4C2B5A8B62001A5285 /* SearchResultCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1381B4A2B5A8B62001A5285 /* SearchResultCollectionViewCell.xib */; };
@@ -63,6 +64,7 @@
 		C11840FE2B70E8280033E28A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		C12C35C12B65095B0065AB2B /* CodeBasedSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBasedSearchViewController.swift; sourceTree = "<group>"; };
 		C12C35C82B650D5C0065AB2B /* CodeBasedSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBasedSearchTableViewCell.swift; sourceTree = "<group>"; };
+		C132C11B2B8B42F700C660FB /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		C1381B472B5A8B58001A5285 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		C1381B492B5A8B62001A5285 /* SearchResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCollectionViewCell.swift; sourceTree = "<group>"; };
 		C1381B4A2B5A8B62001A5285 /* SearchResultCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 			children = (
 				C1BC9A4A2B8763DB0083E181 /* LoginViewModel.swift */,
 				C1BC9A4C2B8763FA0083E181 /* Observable.swift */,
+				C132C11B2B8B42F700C660FB /* ProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				C12C35C92B650D5C0065AB2B /* CodeBasedSearchTableViewCell.swift in Sources */,
 				C1381B772B5E4E5A001A5285 /* SSNavigationTitle.swift in Sources */,
 				C1381B692B5BF205001A5285 /* SettingsProfileTableViewCell.swift in Sources */,
+				C132C11C2B8B42F700C660FB /* ProfileViewModel.swift in Sources */,
 				C1381B652B5BF1F2001A5285 /* SettingsTableViewCell.swift in Sources */,
 				C1381B6C2B5BF412001A5285 /* Settings.swift in Sources */,
 				C148B8BB2B59391300795223 /* SettingViewController.swift in Sources */,

@@ -36,7 +36,7 @@ class LoginViewController: BaseViewController {
     }
     
     @objc func codeTextFieldChanged() {
-        viewModel.code.text = codeTextField.text ?? ""
+        viewModel.code.value = codeTextField.text ?? ""
     }
 
     @IBAction func loginButtonTapped(_ sender: UIButton) {
