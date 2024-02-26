@@ -8,19 +8,14 @@
 import Foundation
 
 class SearchResultViewModel {
-    
+
     var inputKeyword: Observable<String> = Observable("")
-    var inputPage: Observable<Int> = Observable(0)
+    var inputPage: Observable<Int> = Observable(1)
     
     var outputItems: Observable<[Item]> = Observable([])
     var outputTotalCountLabel: Observable<String> = Observable("")
     
-    init() {
-        
-    }
-    
     // MARK: fetchItems - API 호출 및 데이터 가져오기
-    
     func fetchItems(sort: String) {
         
         APISessionManager.shared.callRequest(type: Search.self, keyword: inputKeyword.value, sort: sort, page: 1) { item, error in
@@ -39,8 +34,6 @@ class SearchResultViewModel {
                 let formattedCount = formatter.string(from: NSNumber(value: totalNumber)) ?? "\(totalNumber)"
                 self.outputTotalCountLabel.value = "\(formattedCount)개의 검색 결과"
             }
-            
-            
         }
     }
     
