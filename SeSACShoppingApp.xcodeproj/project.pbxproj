@@ -53,6 +53,7 @@
 		C148B8BB2B59391300795223 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C148B8BA2B59391300795223 /* SettingViewController.swift */; };
 		C148B8BF2B59474B00795223 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C148B8BD2B59474B00795223 /* TableViewCell.swift */; };
 		C148B8C02B59474B00795223 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C148B8BE2B59474B00795223 /* TableViewCell.xib */; };
+		C15B41112B8CBECA000B045D /* SearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15B41102B8CBECA000B045D /* SearchResultViewModel.swift */; };
 		C1BC9A482B8760EF0083E181 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BC9A472B8760EF0083E181 /* LoginViewController.swift */; };
 		C1BC9A4B2B8763DB0083E181 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BC9A4A2B8763DB0083E181 /* LoginViewModel.swift */; };
 		C1BC9A4D2B8763FA0083E181 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BC9A4C2B8763FA0083E181 /* Observable.swift */; };
@@ -104,6 +105,7 @@
 		C148B8BA2B59391300795223 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		C148B8BD2B59474B00795223 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		C148B8BE2B59474B00795223 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		C15B41102B8CBECA000B045D /* SearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewModel.swift; sourceTree = "<group>"; };
 		C1BC9A472B8760EF0083E181 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C1BC9A4A2B8763DB0083E181 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		C1BC9A4C2B8763FA0083E181 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 				C132C11B2B8B42F700C660FB /* ProfileViewModel.swift */,
 				C132C11F2B8B481800C660FB /* ProfileImageViewModel.swift */,
 				C132C1212B8B4AC500C660FB /* SettingViewModel.swift */,
+				C15B41102B8CBECA000B045D /* SearchResultViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 			files = (
 				C1381B512B5A99C1001A5285 /* APIManager.swift in Sources */,
 				C148B8BF2B59474B00795223 /* TableViewCell.swift in Sources */,
+				C15B41112B8CBECA000B045D /* SearchResultViewModel.swift in Sources */,
 				C1381B592B5A9A4A001A5285 /* UserDefaultsManager.swift in Sources */,
 				C148B8AA2B590BB900795223 /* UIViewController+Extension.swift in Sources */,
 				C1C6E27C2B68ACA1005ADF3B /* CodeBasedOnboardingViewController.swift in Sources */,

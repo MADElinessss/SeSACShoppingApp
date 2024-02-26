@@ -18,6 +18,8 @@ class SearchResultViewController: UIViewController {
     
     @IBOutlet weak var itemCollectionView: UICollectionView!
     
+    let viewModel = SearchResultViewModel()
+    
     let sectionInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     
     var items: [Item] = []
@@ -37,12 +39,59 @@ class SearchResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.titleView = UILabel.customNavigationTitle("\(searchKeyword)")
+        navigationItem.titleView = UILabel.customNavigationTitle("\(viewModel.inputKeyword.value)")
         
         setBackGroundColor()
         configureView()
-        fetchItems(sort: "sim")
         
+        bindViewModel()
+        
+        viewModel.inputKeyword.value = searchKeyword
+        viewModel.fetchItems(sort: "sim")
+        self.itemCollectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+        
+        self.itemCollectionView.reloadData()
+        // fetchItems(sort: "sim")
+    }
+    
+    func bindViewModel() {
+        viewModel.outputItems.bind { _ in
+            DispatchQueue.main.async {
+                self.items = self.viewModel.outputItems.value
+                self.itemCollectionView.reloadData()
+            }
+        }
+        
+        viewModel.outputTotalCountLabel.bind { [weak self] totalCountText in
+            DispatchQueue.main.async {
+                self?.totalCountLabel.text = totalCountText
+            }
+        }
+    }
+    
+    private func fetchItems(sort: String) {
+        
+        APISessionManager.shared.callRequest(type: Search.self, keyword: searchKeyword, sort: sort, page: 1) { item, error in
+            
+            guard let item = item else { return }
+            
+            if self.page == 1 {
+                self.items = item.items ?? []
+            } else {
+                self.items.append(contentsOf: item.items ?? [])
+            }
+            
+            if let totalNumber = item.total {
+                let formatter = NumberFormatter()
+                formatter.numberStyle = .decimal
+                let formattedCount = formatter.string(from: NSNumber(value: totalNumber)) ?? "\(totalNumber)"
+                self.totalCountLabel.text = "\(formattedCount)개의 검색 결과"
+            }
+            
+            self.itemCollectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+            
+            self.itemCollectionView.reloadData()
+        }
     }
     
     // MARK: 상품 정렬 버튼 클릭 액션
@@ -74,32 +123,6 @@ class SearchResultViewController: UIViewController {
         page = 1
     }
 
-    // MARK: fetchItems - API 호출 및 데이터 가져오기
-    private func fetchItems(sort: String) {
-        
-        APISessionManager.shared.callRequest(type: Search.self, keyword: searchKeyword, sort: sort, page: 1) { item, error in
- 
-            guard let item = item else { return }
-            
-            if self.page == 1 {
-                self.items = item.items ?? []
-            } else {
-                self.items.append(contentsOf: item.items ?? [])
-            }
-            
-            if let totalNumber = item.total {
-                let formatter = NumberFormatter()
-                formatter.numberStyle = .decimal
-                let formattedCount = formatter.string(from: NSNumber(value: totalNumber)) ?? "\(totalNumber)"
-                self.totalCountLabel.text = "\(formattedCount)개의 검색 결과"
-            }
-            
-            self.itemCollectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
-            
-            self.itemCollectionView.reloadData()
-        }
-    }
-    
     func configureView() {
         itemCollectionView.delegate = self
         itemCollectionView.dataSource = self
