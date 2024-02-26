@@ -48,10 +48,10 @@ class SearchResultViewController: UIViewController {
         
         viewModel.inputKeyword.value = searchKeyword
         viewModel.fetchItems(sort: "sim")
+        
         self.itemCollectionView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
         
         self.itemCollectionView.reloadData()
-        // fetchItems(sort: "sim")
     }
     
     func bindViewModel() {
@@ -96,31 +96,34 @@ class SearchResultViewController: UIViewController {
     
     // MARK: 상품 정렬 버튼 클릭 액션
     @IBAction func accuracySortButton(_ sender: UIButton) {
-        fetchItems(sort: "sim")
+        viewModel.inputPage.value = 1
+        viewModel.fetchItems(sort: "sim")
         updateButtonStyles(selectedButton: sender)
         sorting = "sim"
-        page = 1
     }
-
+    
     @IBAction func recentSortButton(_ sender: UIButton) {
-        fetchItems(sort: "date")
+        viewModel.inputPage.value = 1
+        viewModel.fetchItems(sort: "date")
+        bindViewModel()
         updateButtonStyles(selectedButton: sender)
         sorting = "date"
-        page = 1
     }
 
     @IBAction func priceAscendingButton(_ sender: UIButton) {
-        fetchItems(sort: "dsc")
+        viewModel.inputPage.value = 1
+        viewModel.fetchItems(sort: "dsc")
+        bindViewModel()
         updateButtonStyles(selectedButton: sender)
         sorting = "dsc"
-        page = 1
     }
 
     @IBAction func priceDescendingButton(_ sender: UIButton) {
-        fetchItems(sort: "asc")
+        viewModel.inputPage.value = 1
+        viewModel.fetchItems(sort: "asc")
+        bindViewModel()
         updateButtonStyles(selectedButton: sender)
         sorting = "asc"
-        page = 1
     }
 
     func configureView() {
