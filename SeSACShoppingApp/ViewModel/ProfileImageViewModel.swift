@@ -8,15 +8,27 @@
 import Foundation
 
 // MARK: - 프로필 이미지 선택 뷰모델
-class ProfileImageSelectViewModel {
+final class ProfileImageSelectViewModel {
     
-    var selectedImage = Observable("profile1")
+    let selectedImage = Observable("\(UserDefaultsManager.shared.selectedImage)")
+    var profileButtonTapped: Observable<String> = Observable("")
     
-    func saveSelectedImage() {
-        UserDefaultsManager.shared.selectedImage = selectedImage.value
+    init() {
+        profileButtonTapped.bind { value in
+            self.saveSelectedImage(value)
+        }
     }
     
-    func loadSavedImage() {
-        selectedImage.value = UserDefaultsManager.shared.selectedImage
+    /*
+     MARK: 🦅 Refactoring point:
+     초기 output.value = loadSaveIamge()
+     input: buttonTapped<Int> ---> output: prfile + "index"
+                               ㄴ saveImag
+     */
+    
+    
+    private func saveSelectedImage(_ value: String) {
+        selectedImage.value = value
+        UserDefaultsManager.shared.selectedImage = selectedImage.value
     }
 }

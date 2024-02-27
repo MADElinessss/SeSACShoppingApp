@@ -30,12 +30,10 @@ class ProfileImageSelectViewController: UIViewController {
         configureCollectionView()
         navigationItem.titleView = UILabel.customNavigationTitle("프로필 이미지 설정")
         
-        viewModel.loadSavedImage()
         profileImageView.image = UIImage(named: viewModel.selectedImage.value)
     }
     
     @IBAction func completeButtonTapped(_ sender: UIButton) {
-        viewModel.saveSelectedImage()
         navigationController?.popViewController(animated: true)
     }
     
@@ -85,7 +83,10 @@ extension ProfileImageSelectViewController: UICollectionViewDelegate, UICollecti
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
         if let tappedImageView = sender.view as? UIImageView {
             let tappedIndex = tappedImageView.tag
-            viewModel.selectedImage.value = "profile\(tappedIndex + 1)"
+            
+            // TODO: 버튼 탭했따 Trigger -> ViewModel
+            viewModel.profileButtonTapped.value = "profile\(tappedIndex + 1)"
+            
             profileImageView.image = UIImage(named: viewModel.selectedImage.value)
 
             for i in 0..<collectionView.numberOfItems(inSection: 0) {
